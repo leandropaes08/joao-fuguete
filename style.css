@@ -638,21 +638,30 @@ h1, h2, h3 {
 @media (prefers-reduced-motion: reduce) {
   .supporters-track { animation: none; }
 }
-/* Mobile: only one logo fits per screen, so waiting out the 26s autoplay
-   to see them all feels very slow. Swap to a manual swipeable strip (same
-   pattern as the photo gallery) instead of relying on autoplay. Keyed off
-   width (not hover/pointer) since some mobile webviews misreport those. */
+.supporters-hint { display: none; }
+/* Mobile: autoplay keeps running (same as desktop), but the marquee is also
+   manually swipeable so you're not stuck waiting on the 26s loop to see
+   everyone. A small arrow hints that there's more to slide to. */
 @media (max-width: 860px) {
   .supporters-marquee {
+    position: relative;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x proximity;
     scrollbar-width: none;
   }
   .supporters-marquee::-webkit-scrollbar { display: none; }
-  .supporters-track { animation: none; }
-  .supporter-card { scroll-snap-align: start; }
-  .supporter-card[tabindex="-1"], .supporters-track .supporter-sep { display: none; }
+  .supporters-hint {
+    display: flex;
+    position: absolute; top: 50%; right: 0.35rem;
+    transform: translateY(-50%);
+    width: 1.9rem; height: 1.9rem; border-radius: 50%;
+    align-items: center; justify-content: center;
+    background: rgba(255,255,255,0.12); backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid var(--border-soft); color: #fff;
+    font-size: 1rem; line-height: 1;
+    pointer-events: none;
+  }
 }
 .supporters-cta {
   padding: 1rem 2rem 0;
