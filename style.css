@@ -638,30 +638,18 @@ h1, h2, h3 {
 @media (prefers-reduced-motion: reduce) {
   .supporters-track { animation: none; }
 }
-.supporters-hint { display: none; }
-/* Mobile: autoplay keeps running (same as desktop), but the marquee is also
-   manually swipeable so you're not stuck waiting on the 26s loop to see
-   everyone. A small arrow hints that there's more to slide to. */
+/* Mobile: only one logo fits per screen, so waiting out the 26s autoplay
+   to see them all feels slow. Swap to a manual swipeable strip (same
+   pattern as the photo gallery) instead of relying on autoplay. */
 @media (max-width: 860px) {
-  .supporters-marquee-wrap { position: relative; }
   .supporters-marquee {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
   }
   .supporters-marquee::-webkit-scrollbar { display: none; }
-  .supporters-hint {
-    display: flex;
-    position: absolute; top: 50%; right: 0.35rem;
-    transform: translateY(-50%);
-    width: 1.9rem; height: 1.9rem; border-radius: 50%;
-    align-items: center; justify-content: center;
-    background: rgba(255,255,255,0.12); backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    border: 1px solid var(--border-soft); color: #fff;
-    font-size: 1rem; line-height: 1;
-    pointer-events: none;
-  }
+  .supporters-track { animation: none; }
+  .supporter-card[tabindex="-1"], .supporters-track .supporter-sep { display: none; }
 }
 .supporters-cta {
   padding: 1rem 2rem 0;
