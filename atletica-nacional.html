@@ -94,8 +94,15 @@
   }
   .an-btn--fill { background: var(--orange); color: var(--navy-deep); }
   .an-btn--fill:hover { transform: translateY(-2px); }
-  .an-btn--outline { border: 1px solid var(--border); color: var(--text); }
-  .an-btn--outline:hover { border-color: var(--text); }
+  .an-btn--outline {
+    padding-left: 0; padding-right: 0;
+    color: var(--text);
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0 100%; background-repeat: no-repeat; background-size: 0% 2px;
+    border-radius: 0;
+    transition: background-size 0.3s ease;
+  }
+  .an-btn--outline:hover { background-size: 100% 2px; transform: none; }
 
   /* Section head */
   .an-section { padding: 5rem 1.5rem; }
@@ -166,14 +173,18 @@
   .an-story-photos img { border-radius: 8px; height: 100%; object-fit: cover; }
   .an-story-photos .tall { aspect-ratio: 3/5; }
   .an-story-photos .short { aspect-ratio: 3/5; align-self: end; }
-  .an-story-stats { display: flex; gap: 2.5rem; margin-top: 2.2rem; padding-top: 2.2rem; border-top: 1px solid var(--border); }
-  .an-story-stats strong { display: block; font-family: var(--font-display); font-size: 1.8rem; color: var(--orange); }
-  .an-story-stats span { font-size: 0.75rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-dim); }
 
-  /* CTA */
-  .an-cta { text-align: center; padding: 5rem 1.5rem 6rem; }
-  .an-cta h2 { font-family: var(--font-display); font-size: 1.7rem; color: var(--text); margin: 0 0 0.8rem; text-transform: uppercase; }
+  /* Closing CTA banner */
+  .an-cta {
+    text-align: center; padding: 5.5rem 1.5rem;
+    background: var(--orange); color: rgba(8,22,39,0.8);
+  }
+  .an-cta h2 {
+    font-family: var(--font-display); font-weight: 800; font-size: clamp(2rem, 5vw, 3.2rem);
+    color: var(--navy-deep); margin: 0 0 0.8rem; text-transform: uppercase; letter-spacing: -0.01em;
+  }
   .an-cta p { max-width: 440px; margin: 0 auto 2rem; }
+  .an-cta .an-btn--fill { background: var(--navy-deep); color: var(--text); }
 
   .an-footer { padding: 2rem 1.5rem 3rem; text-align: center; font-size: 0.8rem; color: var(--text-dim); }
   .an-footer a { text-decoration: underline; text-underline-offset: 3px; }
@@ -250,16 +261,6 @@
         <h2>Sobre a <span>parceria</span></h2>
         <p>A Atlética Nacional é uma das marcas que acreditam no João, ao lado de outros apoiadores da temporada.</p>
         <p>Como <strong>patrocinadora Gold</strong>, ela ocupa o maior papel de apoio entre os patrocinadores atuais, contribuindo diretamente para que o João siga competindo e evoluindo no triatlo.</p>
-        <div class="an-story-stats">
-          <div>
-            <strong>+5</strong>
-            <span>Anos de treino</span>
-          </div>
-          <div>
-            <strong>19</strong>
-            <span>Provas disputadas</span>
-          </div>
-        </div>
       </div>
       <div class="an-story-photos">
         <img class="tall" src="fotos/joao-ciclismo-entardecer.webp" alt="João Fuguete pedalando ao entardecer">
@@ -269,8 +270,8 @@
   </section>
 
   <section class="an-cta">
-    <h2>Conheça a Atlética Nacional</h2>
-    <p>Acompanhe a marca e todos os canais oficiais no link abaixo.</p>
+    <h2>Treinem conosco</h2>
+    <p>Conheça a Atlética Nacional e todos os canais oficiais da marca.</p>
     <a class="an-btn an-btn--fill" href="https://linktr.ee/atleticanacional" target="_blank" rel="noopener">Ver Linktree &#8594;</a>
   </section>
 
