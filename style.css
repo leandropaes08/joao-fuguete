@@ -618,8 +618,12 @@ h1, h2, h3 {
   width: max-content;
   animation: supporters-scroll 26s linear infinite;
 }
-.supporters-marquee:hover .supporters-track,
 .supporters-marquee.is-paused .supporters-track { animation-play-state: paused; }
+@media (min-width: 861px) {
+  /* Hover-to-pause is desktop-only: touch browsers can leave :hover "stuck"
+     active after a tap, which would freeze the animation permanently. */
+  .supporters-marquee:hover .supporters-track { animation-play-state: paused; }
+}
 @keyframes supporters-scroll {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
@@ -638,9 +642,8 @@ h1, h2, h3 {
 @media (prefers-reduced-motion: reduce) {
   .supporters-track { animation: none; }
 }
-/* Mobile: only one logo fits per screen, so waiting out the 26s autoplay
-   to see them all feels slow. Swap to a manual swipeable strip (same
-   pattern as the photo gallery) instead of relying on autoplay. */
+/* Mobile: autoplay keeps running, and the strip is also swipeable so you're
+   not stuck waiting on the 26s loop to see everyone. */
 @media (max-width: 860px) {
   .supporters-marquee {
     overflow-x: auto;
@@ -648,8 +651,6 @@ h1, h2, h3 {
     scrollbar-width: none;
   }
   .supporters-marquee::-webkit-scrollbar { display: none; }
-  .supporters-track { animation: none; }
-  .supporter-card[tabindex="-1"], .supporters-track .supporter-sep { display: none; }
 }
 .supporters-cta {
   padding: 1rem 2rem 0;

@@ -87,11 +87,17 @@ mainNav?.querySelectorAll('a').forEach(a => {
 });
 
 // Supporters marquee: clicking a logo pauses the autoscroll on it (click again to resume).
-// Animation only runs above the 860px mobile breakpoint, so this can't fight touch scrolling.
+// A swipe also ends in a click on release, so skip the toggle if the swipe actually
+// scrolled the strip (compared via scrollLeft, which only a real drag changes).
 const supportersMarquee = document.querySelector('.supporters-marquee');
+let supportersScrollAtDown = 0;
+supportersMarquee?.addEventListener('pointerdown', () => {
+  supportersScrollAtDown = supportersMarquee.scrollLeft;
+});
 supportersMarquee?.querySelectorAll('.supporter-card').forEach(card => {
   card.addEventListener('click', (e) => {
     e.preventDefault();
+    if (Math.abs(supportersMarquee.scrollLeft - supportersScrollAtDown) > 2) return;
     supportersMarquee.classList.toggle('is-paused');
   });
 });
