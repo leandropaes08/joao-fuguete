@@ -53,23 +53,19 @@
   /* Hero */
   .an-hero {
     position: relative;
-    min-height: 78vh;
-    display: flex; align-items: flex-end;
+    padding: 6rem 1.5rem 5rem;
+    text-align: center;
     overflow: hidden;
-    padding: 3rem 1.5rem 4rem;
   }
-  .an-hero-bg {
-    position: absolute; inset: 0;
-    background: url('fotos/joao-hero-ciclismo.webp') center 30% / cover no-repeat;
-    filter: grayscale(0.3);
-  }
-  .an-hero-overlay {
-    position: absolute; inset: 0;
+  .an-hero::before {
+    content: '';
+    position: absolute; inset: 0; z-index: 0;
     background:
-      linear-gradient(0deg, var(--navy-deep) 5%, rgba(8,22,39,0.35) 55%, rgba(8,22,39,0.15) 100%),
-      linear-gradient(100deg, rgba(8,22,39,0.9) 10%, rgba(17,46,81,0.35) 55%, transparent 90%);
+      radial-gradient(ellipse 60% 55% at 30% 20%, rgba(255,110,11,0.22) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 55% at 75% 60%, rgba(17,46,81,0.7) 0%, transparent 70%);
   }
-  .an-hero-content { position: relative; max-width: 620px; }
+  .an-hero-content { position: relative; max-width: 620px; margin: 0 auto; }
+  .an-hero-logo { width: 100%; max-width: 340px; margin: 0 auto 2rem; }
   .an-hero-eyebrow {
     font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase;
     font-weight: 800; color: var(--orange);
@@ -77,14 +73,14 @@
   }
   .an-hero h1 {
     font-family: var(--font-display); font-weight: 800;
-    font-size: clamp(2.4rem, 6vw, 4rem); line-height: 1.02;
+    font-size: clamp(2.2rem, 5.4vw, 3.4rem); line-height: 1.05;
     letter-spacing: -0.01em;
     margin: 0 0 1.2rem; color: var(--text);
     text-transform: uppercase;
   }
   .an-hero h1 span { color: var(--orange); }
-  .an-hero p { max-width: 460px; font-size: 1.02rem; margin: 0 0 2rem; }
-  .an-hero-actions { display: flex; gap: 0.9rem; flex-wrap: wrap; }
+  .an-hero p { max-width: 460px; margin: 0 auto 2rem; font-size: 1.02rem; }
+  .an-hero-actions { display: flex; gap: 0.9rem; flex-wrap: wrap; justify-content: center; }
   .an-btn {
     display: inline-flex; align-items: center; gap: 0.5rem;
     font-size: 0.85rem; font-weight: 700; letter-spacing: 0.02em; text-transform: uppercase;
@@ -130,22 +126,18 @@
   }
   .an-card--wide { grid-column: span 2; background: var(--navy); }
   .an-card--square { grid-column: span 1; background: var(--orange); color: var(--navy-deep); }
-  .an-card--photo {
-    grid-column: span 1; min-height: 260px;
-    background-size: cover; background-position: center;
-    position: relative;
+  .an-card--brand { align-items: center; justify-content: center; text-align: center; min-height: 260px; }
+  .an-panel-wordmark {
+    font-family: var(--font-display); font-weight: 800; font-size: 1.5rem;
+    letter-spacing: -0.01em; text-transform: uppercase; line-height: 1.15;
+    color: var(--navy-deep);
   }
-  .an-card--photo::after {
-    content: ''; position: absolute; inset: 0;
-    background: linear-gradient(0deg, rgba(8,22,39,0.85) 0%, transparent 55%);
-  }
-  .an-card--photo > * { position: relative; }
   .an-card--text { grid-column: span 2; background: var(--navy); flex-direction: row; align-items: center; justify-content: space-between; gap: 1.5rem; }
   .an-card-label {
     font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700;
     margin-bottom: 0.6rem;
   }
-  .an-card--wide .an-card-label, .an-card--photo .an-card-label, .an-card--text .an-card-label { color: var(--orange); }
+  .an-card--wide .an-card-label, .an-card--text .an-card-label { color: var(--orange); }
   .an-card--square .an-card-label { color: rgba(8,22,39,0.6); }
   .an-card-title {
     font-family: var(--font-display); font-weight: 800; font-size: 1.4rem; color: var(--text); margin: 0 0 0.4rem;
@@ -161,7 +153,7 @@
   .an-card-statbox span { font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-dim); }
 
   /* Partnership section */
-  .an-story { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+  .an-story { max-width: 640px; margin: 0 auto; text-align: center; }
   .an-story h2 {
     font-family: var(--font-display); font-weight: 800; font-size: clamp(1.8rem, 4vw, 2.6rem);
     color: var(--text); text-transform: uppercase; line-height: 1.05; margin: 0 0 1.4rem;
@@ -169,10 +161,6 @@
   .an-story h2 span { color: var(--orange); }
   .an-story p { margin: 0 0 1.2rem; }
   .an-story strong { color: var(--text); }
-  .an-story-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-  .an-story-photos img { border-radius: 8px; height: 100%; object-fit: cover; }
-  .an-story-photos .tall { aspect-ratio: 3/5; }
-  .an-story-photos .short { aspect-ratio: 3/5; align-self: end; }
 
   /* Closing CTA banner */
   .an-cta {
@@ -196,10 +184,8 @@
 
   @media (max-width: 860px) {
     .an-bento { grid-template-columns: 1fr; }
-    .an-card--wide, .an-card--square, .an-card--photo, .an-card--text { grid-column: span 1; }
+    .an-card--wide, .an-card--square, .an-card--text { grid-column: span 1; }
     .an-card--text { flex-direction: column; align-items: flex-start; }
-    .an-story { grid-template-columns: 1fr; }
-    .an-story-photos { order: -1; }
   }
 </style>
 </head>
@@ -211,11 +197,10 @@
   </nav>
 
   <header class="an-hero">
-    <div class="an-hero-bg"></div>
-    <div class="an-hero-overlay"></div>
     <div class="an-hero-content">
+      <img class="an-hero-logo" src="fotos/apoiador-atletica-nacional.webp" alt="Atlética Nacional">
       <p class="an-hero-eyebrow">Patrocinador Gold</p>
-      <h1>Impulsionando<br>cada <span>conquista</span></h1>
+      <h1>Impulsionando cada <span>conquista</span></h1>
       <p>A Atlética Nacional é a patrocinadora Gold de João Fuguete, apoiando sua trajetória no triatlo dentro e fora das provas.</p>
       <div class="an-hero-actions">
         <a class="an-btn an-btn--fill" href="https://linktr.ee/atleticanacional" target="_blank" rel="noopener">Ver Linktree &#8594;</a>
@@ -241,9 +226,8 @@
           <p class="an-card-title">+7</p>
           <p>Pódios conquistados até aqui.</p>
         </div>
-        <div class="an-card an-card--photo" style="background-image: url('fotos/joao-natacao-largada.webp');">
-          <span class="an-card-label">Em ação</span>
-          <p class="an-card-title">Triatlo</p>
+        <div class="an-card an-card--square an-card--brand">
+          <span class="an-panel-wordmark">Atlética<br>Nacional</span>
         </div>
         <div class="an-card an-card--text">
           <div>
@@ -262,15 +246,9 @@
 
   <section class="an-section">
     <div class="wrap an-story">
-      <div>
-        <h2>Sobre a <span>parceria</span></h2>
-        <p>A Atlética Nacional é uma das marcas que acreditam no João, ao lado de outros apoiadores da temporada.</p>
-        <p>Como <strong>patrocinadora Gold</strong>, ela ocupa o maior papel de apoio entre os patrocinadores atuais, contribuindo diretamente para que o João siga competindo e evoluindo no triatlo.</p>
-      </div>
-      <div class="an-story-photos">
-        <img class="tall" src="fotos/joao-ciclismo-entardecer.webp" alt="João Fuguete pedalando ao entardecer">
-        <img class="short" src="fotos/joao-corrida-contraluz.webp" alt="João Fuguete correndo em contraluz">
-      </div>
+      <h2>Sobre a <span>parceria</span></h2>
+      <p>A Atlética Nacional é uma das marcas que acreditam no João, ao lado de outros apoiadores da temporada.</p>
+      <p>Como <strong>patrocinadora Gold</strong>, ela ocupa o maior papel de apoio entre os patrocinadores atuais, contribuindo diretamente para que o João siga competindo e evoluindo no triatlo.</p>
     </div>
   </section>
 
