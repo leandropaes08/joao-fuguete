@@ -658,12 +658,8 @@ h1, h2, h3 {
 }
 .supporter-card--gold {
   opacity: 1; filter: none;
-  padding: 1.1rem 2.2rem;
-  border: 1px solid rgba(212,175,106,0.35);
-  border-radius: var(--radius-sm);
-  background: rgba(212,175,106,0.06);
 }
-.supporter-card--gold:hover { transform: translateY(-3px); border-color: rgba(212,175,106,0.6); }
+.supporter-card--gold:hover { transform: translateY(-3px); }
 .supporter-card--gold img { height: 108px; max-width: 320px; }
 .supporters-subhead {
   font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
