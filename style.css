@@ -635,9 +635,40 @@ h1, h2, h3 {
   transition: transform 0.2s ease, opacity 0.2s ease, filter 0.2s ease;
   opacity: 0.8;
   filter: grayscale(1) brightness(1.15);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 .supporter-card:hover { transform: translateY(-3px); opacity: 1; filter: grayscale(0) brightness(1); }
-.supporter-card img { height: 84px; width: auto; max-width: 250px; object-fit: contain; border-radius: 8px; }
+.supporter-card img {
+  height: 84px; width: auto; max-width: 250px; object-fit: contain; border-radius: 8px;
+  -webkit-user-drag: none;
+  user-drag: none;
+  pointer-events: none;
+}
+
+/* Gold sponsor: pulled out of the scrolling strip into its own featured slot */
+.supporters-gold {
+  display: flex; flex-direction: column; align-items: center; gap: 0.9rem;
+  margin-bottom: 2.6rem;
+}
+.supporters-gold-badge {
+  font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase;
+  font-weight: 700; color: #d4af6a;
+}
+.supporter-card--gold {
+  opacity: 1; filter: none;
+  padding: 1.1rem 2.2rem;
+  border: 1px solid rgba(212,175,106,0.35);
+  border-radius: var(--radius-sm);
+  background: rgba(212,175,106,0.06);
+}
+.supporter-card--gold:hover { transform: translateY(-3px); border-color: rgba(212,175,106,0.6); }
+.supporter-card--gold img { height: 108px; max-width: 320px; }
+.supporters-subhead {
+  font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--text-dim); margin-bottom: 1.1rem;
+}
 
 @media (prefers-reduced-motion: reduce) {
   .supporters-track { animation: none; }

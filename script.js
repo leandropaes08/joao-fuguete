@@ -442,6 +442,8 @@ const translations = {
 
     'supporters.eyebrow': 'Apoiadores',
     'supporters.title': 'Marcas e pessoas que acreditam no João',
+    'supporters.goldLabel': 'Patrocinador Gold',
+    'supporters.otherLabel': 'Outros apoiadores',
     'supporters.logoAlt': 'Capacete & Cia, apoiador',
     'supporters.logo2Alt': 'Atlética Nacional, apoiadora',
     'supporters.logo3Alt': 'Raphaella Cabral Nutricionista, apoiadora',
@@ -597,6 +599,8 @@ const translations = {
 
     'supporters.eyebrow': 'Supporters',
     'supporters.title': 'Brands and people who believe in João',
+    'supporters.goldLabel': 'Gold Sponsor',
+    'supporters.otherLabel': 'Other supporters',
     'supporters.logoAlt': 'Capacete & Cia, supporter',
     'supporters.logo2Alt': 'Atlética Nacional, supporter',
     'supporters.logo3Alt': 'Raphaella Cabral Nutricionista, supporter',

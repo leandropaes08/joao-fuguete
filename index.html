@@ -22,7 +22,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=6">
+<link rel="stylesheet" href="style.css?v=7">
 </head>
 <body>
 
@@ -99,14 +99,19 @@
     <div class="section-head" data-reveal>
       <h2 data-i18n="supporters.title">Marcas e pessoas que acreditam no João</h2>
     </div>
+
+    <div class="supporters-gold" data-reveal>
+      <span class="supporters-gold-badge" data-i18n="supporters.goldLabel">Patrocinador Gold</span>
+      <a href="#" class="supporter-card supporter-card--gold">
+        <img loading="lazy" decoding="async" src="fotos/apoiador-atletica-nacional.webp" data-i18n-alt="supporters.logo2Alt" alt="Atlética Nacional, apoiadora">
+      </a>
+    </div>
+
+    <p class="supporters-subhead" data-i18n="supporters.otherLabel">Outros apoiadores</p>
     <div class="supporters-marquee" data-reveal>
       <div class="supporters-track">
         <a href="#" class="supporter-card">
           <img loading="lazy" decoding="async" src="fotos/apoiador-capacete-cia.webp" data-i18n-alt="supporters.logoAlt" alt="Capacete & Cia, apoiador">
-        </a>
-        <span class="supporter-sep" aria-hidden="true">+</span>
-        <a href="#" class="supporter-card">
-          <img loading="lazy" decoding="async" src="fotos/apoiador-atletica-nacional.webp" data-i18n-alt="supporters.logo2Alt" alt="Atlética Nacional, apoiadora">
         </a>
         <span class="supporter-sep" aria-hidden="true">+</span>
         <a href="#" class="supporter-card">
@@ -123,10 +128,6 @@
         <span class="supporter-sep" aria-hidden="true">+</span>
         <a href="#" class="supporter-card" aria-hidden="true" tabindex="-1">
           <img loading="lazy" decoding="async" src="fotos/apoiador-capacete-cia.webp" alt="">
-        </a>
-        <span class="supporter-sep" aria-hidden="true">+</span>
-        <a href="#" class="supporter-card" aria-hidden="true" tabindex="-1">
-          <img loading="lazy" decoding="async" src="fotos/apoiador-atletica-nacional.webp" alt="">
         </a>
         <span class="supporter-sep" aria-hidden="true">+</span>
         <a href="#" class="supporter-card" aria-hidden="true" tabindex="-1">
@@ -568,6 +569,6 @@
   <svg viewBox="0 0 24 24" fill="none"><path d="M12 19V5M12 5l-6 6M12 5l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
 </button>
 
-<script src="script.js?v=6"></script>
+<script src="script.js?v=7"></script>
 </body>
 </html>
