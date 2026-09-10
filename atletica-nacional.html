@@ -15,11 +15,12 @@
 <style>
   :root {
     --navy: #112e51;
-    --navy-deep: #0a1c33;
+    --navy-deep: #081627;
     --orange: #ff6e0b;
     --text: #ffffff;
-    --text-muted: rgba(255,255,255,0.68);
+    --text-muted: rgba(255,255,255,0.66);
     --text-dim: rgba(255,255,255,0.4);
+    --border: rgba(255,255,255,0.12);
     --font-display: 'Bricolage Grotesque', 'Manrope', sans-serif;
     --font-body: 'Manrope', sans-serif;
   }
@@ -32,8 +33,10 @@
     line-height: 1.6;
   }
   a { color: inherit; }
-  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 1.5rem; }
+  img { max-width: 100%; display: block; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 1.5rem; }
 
+  /* Nav */
   .an-nav {
     padding: 1.4rem 1.5rem;
     display: flex; align-items: center; justify-content: space-between;
@@ -45,81 +48,142 @@
     transition: color 0.15s ease;
   }
   .an-back:hover { color: var(--text); }
+  .an-nav img { height: 28px; width: auto; opacity: 0.9; }
 
+  /* Hero */
   .an-hero {
-    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(255,110,11,0.18) 0%, transparent 70%), var(--navy);
-    padding: 4.5rem 1.5rem 5rem;
-    text-align: center;
+    position: relative;
+    min-height: 78vh;
+    display: flex; align-items: flex-end;
+    overflow: hidden;
+    padding: 3rem 1.5rem 4rem;
   }
-  .an-hero-badge {
+  .an-hero-bg {
+    position: absolute; inset: 0;
+    background: url('fotos/joao-hero-ciclismo.webp') center 30% / cover no-repeat;
+    filter: grayscale(0.3);
+  }
+  .an-hero-overlay {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(0deg, var(--navy-deep) 5%, rgba(8,22,39,0.35) 55%, rgba(8,22,39,0.15) 100%),
+      linear-gradient(100deg, rgba(8,22,39,0.9) 10%, rgba(17,46,81,0.35) 55%, transparent 90%);
+  }
+  .an-hero-content { position: relative; max-width: 620px; }
+  .an-hero-eyebrow {
     font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase;
     font-weight: 800; color: var(--orange);
-    margin: 0 0 1.8rem;
+    margin: 0 0 1rem;
   }
-  .an-hero img {
-    width: 100%; max-width: 480px; height: auto;
-    margin: 0 auto 1.8rem;
-    display: block;
+  .an-hero h1 {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: clamp(2.4rem, 6vw, 4rem); line-height: 1.02;
+    letter-spacing: -0.01em;
+    margin: 0 0 1.2rem; color: var(--text);
+    text-transform: uppercase;
   }
-  .an-hero p {
-    max-width: 480px; margin: 0 auto; font-size: 1.05rem; color: var(--text-muted);
+  .an-hero h1 span { color: var(--orange); }
+  .an-hero p { max-width: 460px; font-size: 1.02rem; margin: 0 0 2rem; }
+  .an-hero-actions { display: flex; gap: 0.9rem; flex-wrap: wrap; }
+  .an-btn {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-size: 0.85rem; font-weight: 700; letter-spacing: 0.02em; text-transform: uppercase;
+    padding: 0.9rem 1.6rem; border-radius: 4px;
+    text-decoration: none;
+    transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
   }
+  .an-btn--fill { background: var(--orange); color: var(--navy-deep); }
+  .an-btn--fill:hover { transform: translateY(-2px); }
+  .an-btn--outline { border: 1px solid var(--border); color: var(--text); }
+  .an-btn--outline:hover { border-color: var(--text); }
 
-  .an-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
-    background: rgba(255,255,255,0.08);
+  /* Section head */
+  .an-section { padding: 5rem 1.5rem; }
+  .an-section-head {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 1.5rem; margin-bottom: 2.5rem; flex-wrap: wrap;
   }
-  .an-panel {
-    padding: 3rem 2rem;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    text-align: center; gap: 0.8rem;
+  .an-section-head h2 {
+    font-family: var(--font-display); font-weight: 800; font-size: clamp(1.6rem, 3.4vw, 2.2rem);
+    color: var(--text); margin: 0; text-transform: uppercase;
+  }
+  .an-section-tag {
+    font-size: 0.8rem; letter-spacing: 0.08em; color: var(--text-dim); white-space: nowrap;
+  }
+  .an-section-lead { max-width: 480px; font-size: 0.98rem; margin: -1.4rem 0 2.5rem; }
+
+  /* Bento grid */
+  .an-bento {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
+  }
+  .an-card {
+    border-radius: 8px; padding: 2rem;
+    display: flex; flex-direction: column; justify-content: flex-end;
     min-height: 220px;
   }
-  .an-panel--navy { background: var(--navy-deep); }
-  .an-panel--orange { background: var(--orange); color: var(--navy-deep); }
-  .an-panel-wordmark {
-    font-family: var(--font-display); font-weight: 800; font-size: 1.7rem;
-    letter-spacing: -0.01em; text-transform: uppercase;
-    color: var(--navy-deep);
+  .an-card--wide { grid-column: span 2; background: var(--navy); }
+  .an-card--square { grid-column: span 1; background: var(--orange); color: var(--navy-deep); }
+  .an-card--photo {
+    grid-column: span 1; min-height: 260px;
+    background-size: cover; background-position: center;
+    position: relative;
   }
-  .an-panel--navy p { color: var(--text-muted); font-size: 0.98rem; margin: 0; }
-  .an-panel--orange p { color: rgba(10,28,51,0.75); font-size: 0.98rem; margin: 0; }
-  .an-panel-label {
-    font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700;
+  .an-card--photo::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(0deg, rgba(8,22,39,0.85) 0%, transparent 55%);
   }
-  .an-panel--navy .an-panel-label { color: var(--orange); }
-  .an-panel--orange .an-panel-label { color: rgba(10,28,51,0.6); }
+  .an-card--photo > * { position: relative; }
+  .an-card--text { grid-column: span 2; background: var(--navy); flex-direction: row; align-items: center; justify-content: space-between; gap: 1.5rem; }
+  .an-card-label {
+    font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700;
+    margin-bottom: 0.6rem;
+  }
+  .an-card--wide .an-card-label, .an-card--photo .an-card-label, .an-card--text .an-card-label { color: var(--orange); }
+  .an-card--square .an-card-label { color: rgba(8,22,39,0.6); }
+  .an-card-title {
+    font-family: var(--font-display); font-weight: 800; font-size: 1.4rem; color: var(--text); margin: 0 0 0.4rem;
+  }
+  .an-card--square .an-card-title { color: var(--navy-deep); font-size: 2.4rem; }
+  .an-card p { margin: 0; font-size: 0.92rem; }
+  .an-card--square p { color: rgba(8,22,39,0.75); }
+  .an-card-statbox {
+    flex: none; border: 1px solid rgba(255,255,255,0.25); border-radius: 8px;
+    padding: 1.2rem 1.6rem; text-align: center;
+  }
+  .an-card-statbox strong { display: block; font-family: var(--font-display); font-size: 1.6rem; color: var(--text); }
+  .an-card-statbox span { font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-dim); }
 
-  .an-cta {
-    padding: 4.5rem 1.5rem 6rem;
-    text-align: center;
+  /* Partnership section */
+  .an-story { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+  .an-story h2 {
+    font-family: var(--font-display); font-weight: 800; font-size: clamp(1.8rem, 4vw, 2.6rem);
+    color: var(--text); text-transform: uppercase; line-height: 1.05; margin: 0 0 1.4rem;
   }
-  .an-cta h2 {
-    font-family: var(--font-display); font-size: 1.6rem; color: var(--text);
-    margin: 0 0 0.8rem;
-  }
+  .an-story h2 span { color: var(--orange); }
+  .an-story p { margin: 0 0 1.2rem; }
+  .an-story strong { color: var(--text); }
+  .an-story-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .an-story-photos img { border-radius: 8px; height: 100%; object-fit: cover; }
+  .an-story-photos .tall { aspect-ratio: 3/5; }
+  .an-story-photos .short { aspect-ratio: 3/5; align-self: end; }
+  .an-story-stats { display: flex; gap: 2.5rem; margin-top: 2.2rem; padding-top: 2.2rem; border-top: 1px solid var(--border); }
+  .an-story-stats strong { display: block; font-family: var(--font-display); font-size: 1.8rem; color: var(--orange); }
+  .an-story-stats span { font-size: 0.75rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-dim); }
+
+  /* CTA */
+  .an-cta { text-align: center; padding: 5rem 1.5rem 6rem; }
+  .an-cta h2 { font-family: var(--font-display); font-size: 1.7rem; color: var(--text); margin: 0 0 0.8rem; text-transform: uppercase; }
   .an-cta p { max-width: 440px; margin: 0 auto 2rem; }
-  .an-cta-btn {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    background: var(--orange); color: var(--navy-deep);
-    font-weight: 700; font-size: 0.95rem;
-    padding: 0.9rem 2rem; border-radius: 999px;
-    text-decoration: none;
-    transition: transform 0.15s ease;
-  }
-  .an-cta-btn:hover { transform: translateY(-2px); }
 
-  .an-footer {
-    padding: 2rem 1.5rem 3rem;
-    text-align: center;
-    font-size: 0.8rem; color: var(--text-dim);
-  }
+  .an-footer { padding: 2rem 1.5rem 3rem; text-align: center; font-size: 0.8rem; color: var(--text-dim); }
   .an-footer a { text-decoration: underline; text-underline-offset: 3px; }
 
-  @media (max-width: 640px) {
-    .an-grid { grid-template-columns: 1fr; }
-    .an-hero { padding: 3.5rem 1.25rem 3.5rem; }
-    .an-cta { padding: 3.5rem 1.25rem 4rem; }
+  @media (max-width: 860px) {
+    .an-bento { grid-template-columns: 1fr; }
+    .an-card--wide, .an-card--square, .an-card--photo, .an-card--text { grid-column: span 1; }
+    .an-card--text { flex-direction: column; align-items: flex-start; }
+    .an-story { grid-template-columns: 1fr; }
+    .an-story-photos { order: -1; }
   }
 </style>
 </head>
@@ -127,38 +191,87 @@
 
   <nav class="an-nav">
     <a href="index.html#apoiadores" class="an-back">&#8592; João Fuguete</a>
+    <img src="fotos/apoiador-atletica-nacional.webp" alt="Atlética Nacional">
   </nav>
 
   <header class="an-hero">
-    <p class="an-hero-badge">Patrocinador Gold</p>
-    <img src="fotos/apoiador-atletica-nacional.webp" alt="Atlética Nacional">
-    <p>Marca que acredita e impulsiona a jornada de João Fuguete no triatlo, com o maior aporte entre os apoiadores.</p>
+    <div class="an-hero-bg"></div>
+    <div class="an-hero-overlay"></div>
+    <div class="an-hero-content">
+      <p class="an-hero-eyebrow">Patrocinador Gold</p>
+      <h1>Impulsionando<br>cada <span>conquista</span></h1>
+      <p>A Atlética Nacional é a patrocinadora Gold de João Fuguete, apoiando sua trajetória no triatlo dentro e fora das provas.</p>
+      <div class="an-hero-actions">
+        <a class="an-btn an-btn--fill" href="https://linktr.ee/atleticanacional" target="_blank" rel="noopener">Ver Linktree &#8594;</a>
+        <a class="an-btn an-btn--outline" href="index.html#apoiadores">Voltar ao site</a>
+      </div>
+    </div>
   </header>
 
-  <section class="an-grid">
-    <div class="an-panel an-panel--navy">
-      <span class="an-panel-label">Parceria</span>
-      <p>Apoio contínuo às provas, treinos e equipamentos de João desde 2026.</p>
+  <section class="an-section">
+    <div class="wrap">
+      <div class="an-section-head">
+        <h2>O que o apoio Gold impulsiona</h2>
+        <span class="an-section-tag">/ Resultados do João</span>
+      </div>
+      <div class="an-bento">
+        <div class="an-card an-card--wide">
+          <span class="an-card-label">Trajetória</span>
+          <p class="an-card-title">19 provas disputadas</p>
+          <p>Cada etapa, um passo mais perto do próximo pódio.</p>
+        </div>
+        <div class="an-card an-card--square">
+          <span class="an-card-label">Pódios</span>
+          <p class="an-card-title">+7</p>
+          <p>Pódios conquistados até aqui.</p>
+        </div>
+        <div class="an-card an-card--photo" style="background-image: url('fotos/joao-natacao-largada.webp');">
+          <span class="an-card-label">Em ação</span>
+          <p class="an-card-title">Triatlo</p>
+        </div>
+        <div class="an-card an-card--text">
+          <div>
+            <span class="an-card-label">Título</span>
+            <p class="an-card-title">Campeão Brasileiro</p>
+            <p>Melhor colocação: 1º lugar no Duatlo Brasileiro.</p>
+          </div>
+          <div class="an-card-statbox">
+            <strong>1º</strong>
+            <span>Duatlo BR</span>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="an-panel an-panel--orange">
-      <span class="an-panel-wordmark">Atlética Nacional</span>
-    </div>
-    <div class="an-panel an-panel--orange">
-      <span class="an-panel-label">Sobre</span>
-      <p>Atlética voltada à performance e ao incentivo do esporte de base.</p>
-    </div>
-    <div class="an-panel an-panel--navy">
-      <span class="an-panel-label">Obrigado</span>
-      <p>João agradece pelo apoio Gold que torna essa jornada possível.</p>
+  </section>
+
+  <section class="an-section">
+    <div class="wrap an-story">
+      <div>
+        <h2>Sobre a <span>parceria</span></h2>
+        <p>A Atlética Nacional é uma das marcas que acreditam no João, ao lado de outros apoiadores da temporada.</p>
+        <p>Como <strong>patrocinadora Gold</strong>, ela ocupa o maior papel de apoio entre os patrocinadores atuais, contribuindo diretamente para que o João siga competindo e evoluindo no triatlo.</p>
+        <div class="an-story-stats">
+          <div>
+            <strong>+5</strong>
+            <span>Anos de treino</span>
+          </div>
+          <div>
+            <strong>19</strong>
+            <span>Provas disputadas</span>
+          </div>
+        </div>
+      </div>
+      <div class="an-story-photos">
+        <img class="tall" src="fotos/joao-ciclismo-entardecer.webp" alt="João Fuguete pedalando ao entardecer">
+        <img class="short" src="fotos/joao-corrida-contraluz.webp" alt="João Fuguete correndo em contraluz">
+      </div>
     </div>
   </section>
 
   <section class="an-cta">
     <h2>Conheça a Atlética Nacional</h2>
     <p>Acompanhe a marca e todos os canais oficiais no link abaixo.</p>
-    <a class="an-cta-btn" href="https://linktr.ee/atleticanacional" target="_blank" rel="noopener">
-      Ver Linktree &#8594;
-    </a>
+    <a class="an-btn an-btn--fill" href="https://linktr.ee/atleticanacional" target="_blank" rel="noopener">Ver Linktree &#8594;</a>
   </section>
 
   <footer class="an-footer">
