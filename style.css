@@ -638,10 +638,11 @@ h1, h2, h3 {
 @media (prefers-reduced-motion: reduce) {
   .supporters-track { animation: none; }
 }
-/* Touch devices: only one logo fits per screen, so waiting out the 26s
-   autoplay to see them all feels very slow. Swap to a manual swipeable
-   strip (same pattern as the photo gallery) instead of relying on autoplay. */
-@media (hover: none) and (pointer: coarse) {
+/* Mobile: only one logo fits per screen, so waiting out the 26s autoplay
+   to see them all feels very slow. Swap to a manual swipeable strip (same
+   pattern as the photo gallery) instead of relying on autoplay. Keyed off
+   width (not hover/pointer) since some mobile webviews misreport those. */
+@media (max-width: 860px) {
   .supporters-marquee {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
