@@ -80,7 +80,19 @@ navToggle?.addEventListener('click', () => {
   navToggle.classList.toggle('active');
 });
 mainNav?.querySelectorAll('a').forEach(a => {
-  a.addEventListener('click', () => mainNav.classList.remove('open'));
+  a.addEventListener('click', () => {
+    mainNav.classList.remove('open');
+    navToggle?.classList.remove('active');
+  });
+});
+
+// Supporters marquee: clicking a logo pauses the autoscroll on it (tap again to resume)
+const supportersMarquee = document.querySelector('.supporters-marquee');
+supportersMarquee?.querySelectorAll('.supporter-card').forEach(card => {
+  card.addEventListener('click', (e) => {
+    e.preventDefault();
+    supportersMarquee.classList.toggle('is-paused');
+  });
 });
 
 // Countdown to next race

@@ -618,7 +618,8 @@ h1, h2, h3 {
   width: max-content;
   animation: supporters-scroll 26s linear infinite;
 }
-.supporters-marquee:hover .supporters-track { animation-play-state: paused; }
+.supporters-marquee:hover .supporters-track,
+.supporters-marquee.is-paused .supporters-track { animation-play-state: paused; }
 @keyframes supporters-scroll {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
@@ -636,6 +637,21 @@ h1, h2, h3 {
 
 @media (prefers-reduced-motion: reduce) {
   .supporters-track { animation: none; }
+}
+/* Touch devices: only one logo fits per screen, so waiting out the 26s
+   autoplay to see them all feels very slow. Swap to a manual swipeable
+   strip (same pattern as the photo gallery) instead of relying on autoplay. */
+@media (hover: none) and (pointer: coarse) {
+  .supporters-marquee {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+  }
+  .supporters-marquee::-webkit-scrollbar { display: none; }
+  .supporters-track { animation: none; }
+  .supporter-card { scroll-snap-align: start; }
+  .supporter-card[tabindex="-1"], .supporters-track .supporter-sep { display: none; }
 }
 .supporters-cta {
   padding: 1rem 2rem 0;
