@@ -37,6 +37,17 @@ if (!prefersReducedMotion) {
   updateHeroParallax();
 }
 
+// Back to top button
+const backToTop = document.getElementById('backToTop');
+function onBackToTopScroll() {
+  backToTop?.classList.toggle('visible', window.scrollY > window.innerHeight * 0.8);
+}
+window.addEventListener('scroll', onBackToTopScroll, { passive: true });
+onBackToTopScroll();
+backToTop?.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
 // Floating header, appears with blur once the page scrolls past the hero
 const siteHeader = document.getElementById('siteHeader');
 function onHeaderScroll() {
@@ -285,6 +296,7 @@ const translations = {
     'nav.apoiadores': 'Apoiadores',
     'nav.cta': 'Seja apoiador',
     'nav.menuLabel': 'Abrir menu',
+    'backToTop.label': 'Voltar ao topo',
 
     'hero.greeting': 'Olá, eu sou <span class="wave">👋</span>',
     'hero.name': 'João <span>Fuguete</span>',
@@ -433,6 +445,7 @@ const translations = {
     'nav.apoiadores': 'Supporters',
     'nav.cta': 'Become a supporter',
     'nav.menuLabel': 'Open menu',
+    'backToTop.label': 'Back to top',
 
     'hero.greeting': 'Hey, I am <span class="wave">👋</span>',
     'hero.name': 'João <span>Fuguete</span>',
