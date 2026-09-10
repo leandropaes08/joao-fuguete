@@ -309,7 +309,7 @@ const translations = {
     'hero.subtitle': 'Atleta de triatlo, {{age}} anos, determinação, disciplina e paixão pelo esporte, treino a treino, prova a prova.',
     'hero.ctaLink': 'Seja um apoiador',
     'hero.date': 'Local: Brasília, DF. Período: 11 a 26 de setembro de 2026.',
-    'hero.photoAlt': 'João Fuguete correndo à beira do lago, contraluz do amanhecer',
+    'hero.photoAlt': 'João Fuguete comemorando ao cruzar a linha de chegada do Manaus Tri',
     'hero.inviteStatPhotoAlt': 'João correndo à beira do lago durante prova',
     'nextRace.badgeAlt': 'Jogos Escolares Brasileiros (JEBS)',
 
@@ -457,7 +457,7 @@ const translations = {
     'hero.subtitle': 'Triathlon athlete, {{age}} years old, determination, discipline and passion for the sport, workout by workout, race by race.',
     'hero.ctaLink': 'Become a supporter',
     'hero.date': 'Location: Brasília, DF. Dates: September 11 to 26, 2026.',
-    'hero.photoAlt': 'João Fuguete running by the lake, backlit at sunrise',
+    'hero.photoAlt': 'João Fuguete celebrating as he crosses the finish line at Manaus Tri',
     'hero.inviteStatPhotoAlt': 'João running along the lake during a race',
     'nextRace.badgeAlt': 'Brazilian School Games (JEBS)',
 
