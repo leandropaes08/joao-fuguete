@@ -643,8 +643,8 @@ h1, h2, h3 {
    manually swipeable so you're not stuck waiting on the 26s loop to see
    everyone. A small arrow hints that there's more to slide to. */
 @media (max-width: 860px) {
+  .supporters-marquee-wrap { position: relative; }
   .supporters-marquee {
-    position: relative;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;

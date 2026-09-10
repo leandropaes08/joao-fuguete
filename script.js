@@ -86,11 +86,22 @@ mainNav?.querySelectorAll('a').forEach(a => {
   });
 });
 
-// Supporters marquee: clicking a logo pauses the autoscroll on it (tap again to resume)
+// Supporters marquee: tapping a logo pauses the autoscroll on it (tap again to resume).
+// A swipe to scroll also fires a click on release, so ignore clicks that followed real movement.
 const supportersMarquee = document.querySelector('.supporters-marquee');
+let supportersPointerStartX = 0;
+let supportersDragged = false;
+supportersMarquee?.addEventListener('pointerdown', (e) => {
+  supportersPointerStartX = e.clientX;
+  supportersDragged = false;
+});
+supportersMarquee?.addEventListener('pointermove', (e) => {
+  if (Math.abs(e.clientX - supportersPointerStartX) > 6) supportersDragged = true;
+});
 supportersMarquee?.querySelectorAll('.supporter-card').forEach(card => {
   card.addEventListener('click', (e) => {
     e.preventDefault();
+    if (supportersDragged) return;
     supportersMarquee.classList.toggle('is-paused');
   });
 });
