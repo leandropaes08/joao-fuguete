@@ -126,6 +126,19 @@ const statObserver = new IntersectionObserver(entries => {
 }, { threshold: 0.5 });
 statEls.forEach(el => statObserver.observe(el));
 
+// Animated line chart (race placement evolution)
+const progressLine = document.getElementById('progressLine');
+if (progressLine) {
+  const progressObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-visible');
+      progressObserver.unobserve(entry.target);
+    });
+  }, { threshold: 0.4 });
+  progressObserver.observe(progressLine);
+}
+
 // Modal
 const modalOverlay = document.getElementById('modalOverlay');
 const modalClose = document.getElementById('modalClose');
@@ -388,6 +401,19 @@ const translations = {
     'races.table.prova': 'Prova',
     'races.table.modalidade': 'Modalidade',
     'races.table.resultado': 'Resultado',
+    'races.progress.title': 'Evolução de colocação, Copa Norte Nordeste',
+    'races.progress.v1': '8º',
+    'races.progress.v2': '8º',
+    'races.progress.v3': '8º',
+    'races.progress.v4': '7º',
+    'races.progress.v5': '3º',
+    'races.progress.v6': '2º',
+    'races.progress.l1': '2025<br>Circuito',
+    'races.progress.l2': '2025<br>Resistência',
+    'races.progress.l3': '2025<br>Contra-relógio',
+    'races.progress.l4': '2026<br>Circuito',
+    'races.progress.l5': '2026<br>Resistência',
+    'races.progress.l6': '2026<br>Contra-relógio',
 
     'gallery.eyebrow': 'Galeria',
     'gallery.title': 'Momentos das provas e treinos',
@@ -530,6 +556,19 @@ const translations = {
     'races.table.prova': 'Race',
     'races.table.modalidade': 'Discipline',
     'races.table.resultado': 'Result',
+    'races.progress.title': 'Placement progress, North-Northeast Cup',
+    'races.progress.v1': '8th',
+    'races.progress.v2': '8th',
+    'races.progress.v3': '8th',
+    'races.progress.v4': '7th',
+    'races.progress.v5': '3rd',
+    'races.progress.v6': '2nd',
+    'races.progress.l1': '2025<br>Circuit',
+    'races.progress.l2': '2025<br>Endurance',
+    'races.progress.l3': '2025<br>Time Trial',
+    'races.progress.l4': '2026<br>Circuit',
+    'races.progress.l5': '2026<br>Endurance',
+    'races.progress.l6': '2026<br>Time Trial',
 
     'gallery.eyebrow': 'Gallery',
     'gallery.title': 'Moments from races and training',
