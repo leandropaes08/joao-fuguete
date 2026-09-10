@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-i18n="page.title">João Fuguete, Atleta de Triatlo</title>
+<meta name="description" content="João Fuguete, 14 anos, atleta de triatlo. Acompanhe a trajetória, resultados e provas, e conheça as marcas que apoiam essa jornada.">
+
+<link rel="icon" type="image/png" href="fotos/joao-logo-jf.png">
+<link rel="apple-touch-icon" href="fotos/joao-logo-jf.png">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="João Fuguete, Atleta de Triatlo">
+<meta property="og:description" content="João Fuguete, 14 anos, atleta de triatlo. Acompanhe a trajetória, resultados e provas, e conheça as marcas que apoiam essa jornada.">
+<meta property="og:image" content="fotos/joao-corrida-contraluz.jpeg">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="João Fuguete, Atleta de Triatlo">
+<meta name="twitter:description" content="João Fuguete, 14 anos, atleta de triatlo. Acompanhe a trajetória, resultados e provas, e conheça as marcas que apoiam essa jornada.">
+<meta name="twitter:image" content="fotos/joao-corrida-contraluz.jpeg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="glow glow-a" aria-hidden="true"></div>
+<div class="glow glow-b" aria-hidden="true"></div>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-banner">
+      <img class="hero-banner-photo" src="fotos/joao-corrida-contraluz.jpeg" data-i18n-alt="hero.photoAlt" alt="João Fuguete correndo à beira do lago, contraluz do amanhecer">
+      <div class="hero-banner-overlay"></div>
+
+      <header class="hero-nav" id="siteHeader">
+        <a href="#top" class="logo">
+          <span class="logo-mark"><img src="fotos/joao-logo-jf.png" alt="JF"></span>
+          <span class="logo-text">João Fuguete</span>
+        </a>
+        <nav class="main-nav" id="mainNav">
+          <a href="#sobre" data-i18n="nav.sobre">Sobre</a>
+          <a href="#trajetoria" data-i18n="nav.trajetoria">Trajetória</a>
+          <a href="#provas" data-i18n="nav.provas">Provas</a>
+          <a href="#galeria" data-i18n="nav.galeria">Galeria</a>
+          <a href="#apoiadores" data-i18n="nav.apoiadores">Apoiadores</a>
+        </nav>
+        <div class="header-actions">
+          <div class="lang-switch" role="group" aria-label="Language / Idioma">
+            <button type="button" class="lang-btn active" data-lang="pt" aria-label="Português (Brasil)"><span class="flag">🇧🇷</span></button>
+            <button type="button" class="lang-btn" data-lang="en" aria-label="English (US)"><span class="flag">🇺🇸</span></button>
+          </div>
+          <button class="btn btn-accent" data-open-modal data-i18n="nav.cta">Seja apoiador</button>
+          <button class="nav-toggle" id="navToggle" data-i18n-aria-label="nav.menuLabel" aria-label="Abrir menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </header>
+
+      <span class="hero-banner-arrow" aria-hidden="true">→</span>
+      <div class="hero-banner-frame-v" aria-hidden="true"></div>
+      <div class="hero-banner-frame-h" aria-hidden="true"></div>
+      <div class="hero-banner-corner" aria-hidden="true"></div>
+      <div class="hero-banner-side" data-i18n="hero.side">road to the race</div>
+
+      <div class="hero-banner-content">
+        <h1 class="hero-banner-name" data-i18n="hero.name">João <span>Fuguete</span></h1>
+        <p class="hero-banner-tag" data-i18n="hero.tag">future is now</p>
+        <button class="btn btn-accent btn-lg" data-open-modal data-i18n="hero.ctaLink">Seja um apoiador</button>
+      </div>
+    </div>
+
+    <div class="hero-stats">
+        <div class="stat-card">
+          <strong data-count="19">0</strong>
+          <span data-i18n="stats.races.label">Provas disputadas</span>
+        </div>
+        <div class="stat-card">
+          <strong data-count="7">0</strong>
+          <span data-i18n="stats.podiums.label">Pódios conquistados</span>
+        </div>
+        <div class="stat-card">
+          <strong data-count="3">0</strong>
+          <span data-i18n="stats.years.label">Anos de treino</span>
+        </div>
+        <div class="stat-card">
+          <strong data-i18n="stats.best.value">1º</strong>
+          <span data-i18n="stats.best.label">Campeão Brasileiro de Duatlo</span>
+        </div>
+    </div>
+  </section>
+
+  <!-- PROXIMA PROVA -->
+  <section class="next-race">
+    <div class="next-race-inner">
+      <div class="next-race-info">
+        <div class="next-race-badge">
+          <img loading="lazy" decoding="async" src="fotos/jebs-mascote.jpg" data-i18n-alt="nextRace.badgeAlt" alt="Jogos Escolares Brasileiros (JEBS)">
+        </div>
+        <div class="avatar-stack" aria-hidden="true">
+          <img loading="lazy" decoding="async" src="fotos/joao-natacao-saida.jpeg" alt="">
+          <img loading="lazy" decoding="async" src="fotos/joao-ciclismo-curva.jpeg" alt="">
+          <img loading="lazy" decoding="async" src="fotos/joao-corrida-comemoracao.jpeg" alt="">
+        </div>
+        <p class="next-race-title" data-i18n="hero.inviteTitle">Você está convidado<br>para a próxima prova!</p>
+        <p class="next-race-date" id="nextRaceDate" data-i18n="hero.date">11 de setembro de 2026, horário a confirmar</p>
+      </div>
+      <div class="countdown" id="countdown">
+        <div class="countdown-unit"><span id="cd-days">00</span><small data-i18n="countdown.days">Dias</small></div>
+        <span class="countdown-sep">:</span>
+        <div class="countdown-unit"><span id="cd-hours">00</span><small data-i18n="countdown.hours">Horas</small></div>
+        <span class="countdown-sep">:</span>
+        <div class="countdown-unit"><span id="cd-min">00</span><small data-i18n="countdown.min">Min</small></div>
+        <span class="countdown-sep">:</span>
+        <div class="countdown-unit"><span id="cd-sec">00</span><small data-i18n="countdown.sec">Seg</small></div>
+      </div>
+      <button class="btn btn-outline btn-lg" data-open-modal data-i18n="hero.registerBtn">Inscrever-se</button>
+    </div>
+  </section>
+
+  <!-- QUEM É JOÃO -->
+  <section class="about" id="sobre" data-reveal-group>
+    <div class="about-media" data-reveal>
+      <img loading="lazy" decoding="async" src="fotos/joao-natacao-largada.jpeg" data-i18n-alt="about.photoAlt" alt="João concentrado na largada da natação, cercado por outros atletas">
+    </div>
+    <div class="about-content" data-reveal>
+      <h2 data-i18n="about.title">Quem sou eu</h2>
+      <p data-i18n="about.p1">João tem 14 anos e descobriu o triatlo como forma de superar limites, próprios, não dos outros. Entre treinos de natação, ciclismo e corrida, ele concilia rotina escolar com uma disciplina que muita gente adulta ainda está aprendendo.</p>
+      <p data-i18n="about.p2">Mais do que resultado, o que move o João é a evolução constante. Cada treino é um degrau, cada prova é uma prova de que dá pra ir mais longe.</p>
+      <blockquote data-i18n="about.quote">“Eu não compito só contra os outros. Compito contra o João de ontem.”</blockquote>
+    </div>
+  </section>
+
+  <!-- TRAJETORIA -->
+  <section class="trajectory" id="trajetoria">
+    <div class="section-head" data-reveal>
+      <h2 data-i18n="trajectory.title">A caminhada até aqui</h2>
+    </div>
+    <div class="timeline" data-reveal-group>
+      <div class="timeline-item" data-reveal>
+        <div class="timeline-marker"></div>
+        <div class="timeline-body">
+          <span class="timeline-year">2021</span>
+          <h3 data-i18n="trajectory.2021.title">Início no ciclismo</h3>
+          <p data-i18n="trajectory.2021.desc">Primeiros treinos de ciclismo.</p>
+        </div>
+      </div>
+      <div class="timeline-item" data-reveal>
+        <div class="timeline-marker"></div>
+        <div class="timeline-body">
+          <span class="timeline-year">2022</span>
+          <h3 data-i18n="trajectory.2022.title">Início na natação</h3>
+          <p data-i18n="trajectory.2022.desc">Primeiros treinos de natação.</p>
+        </div>
+      </div>
+      <div class="timeline-item" data-reveal>
+        <div class="timeline-marker"></div>
+        <div class="timeline-body">
+          <span class="timeline-year">2023</span>
+          <h3 data-i18n="trajectory.2023.title">Início na corrida</h3>
+          <p data-i18n="trajectory.2023.desc">Primeiros treinos de corrida.</p>
+        </div>
+      </div>
+      <div class="timeline-item" data-reveal>
+        <div class="timeline-marker"></div>
+        <div class="timeline-body">
+          <span class="timeline-year">2024</span>
+          <h3 data-i18n="trajectory.2024.title">Primeira prova oficial</h3>
+          <p data-i18n="trajectory.2024.desc">Largada na categoria de base, com foco em aprender o ritmo de transição entre as três modalidades.</p>
+        </div>
+      </div>
+      <div class="timeline-item" data-reveal>
+        <div class="timeline-marker"></div>
+        <div class="timeline-body">
+          <span class="timeline-year">2025</span>
+          <h3 data-i18n="trajectory.2025.title">Entrada na equipe</h3>
+          <p data-i18n="trajectory.2025.desc">Passa a treinar com equipe técnica estruturada, evoluindo tempos em todas as modalidades.</p>
+        </div>
+      </div>
+      <div class="timeline-item" data-reveal>
+        <div class="timeline-marker"></div>
+        <div class="timeline-body">
+          <span class="timeline-year">2025</span>
+          <h3 data-i18n="trajectory.2025b.title">Campeão Brasileiro de Duatlo</h3>
+          <p data-i18n="trajectory.2025b.desc">Conquista o 1º lugar no Campeonato Brasileiro de Duatlo Sprint, categoria infantil, masculino 12 anos.</p>
+        </div>
+      </div>
+      <div class="timeline-item" data-reveal>
+        <div class="timeline-marker"></div>
+        <div class="timeline-body">
+          <span class="timeline-year">2026</span>
+          <h3 data-i18n="trajectory.2026.title">Jogos JEBS</h3>
+          <p data-i18n="trajectory.2026.desc">Disputa os Jogos JEBS na categoria juvenil, próximo desafio.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRÓXIMAS PROVAS E METAS -->
+  <section class="upcoming">
+    <div class="upcoming-content" data-reveal>
+      <h2 data-i18n="upcoming.title">Para onde o apoio se transforma em resultado</h2>
+      <p data-i18n="upcoming.desc">Cada prova é um passo em direção a um objetivo maior: chegar entre os primeiros do país na categoria juvenil e seguir evoluindo rumo às categorias de elite do triatlo nacional.</p>
+    </div>
+    <div class="upcoming-list" data-reveal-group>
+      <div class="upcoming-card" data-reveal>
+        <span class="upcoming-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11Z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.5"/></svg></span>
+        <div>
+          <strong data-i18n="upcoming.card1.title">Circuito Regional de Triatlo</strong>
+          <span data-i18n="upcoming.card1.date">Setembro de 2026, Manaus/AM</span>
+        </div>
+      </div>
+      <div class="upcoming-card" data-reveal>
+        <span class="upcoming-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11Z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.5"/></svg></span>
+        <div>
+          <strong data-i18n="upcoming.card2.title">Jogos Escolares Brasileiros (JEBS) 2026</strong>
+          <span data-i18n="upcoming.card2.date">11 e 26 de setembro de 2026</span>
+        </div>
+      </div>
+      <div class="upcoming-card upcoming-card--goal" data-reveal>
+        <span class="upcoming-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 3v18M5 4h11l-2 3.5L16 11H5" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></span>
+        <div>
+          <strong data-i18n="upcoming.card3.title">Meta 2026/2027</strong>
+          <span data-i18n="upcoming.card3.date">Top 3 nacional na categoria juvenil</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROVAS E RESULTADOS -->
+  <section class="races" id="provas">
+    <div class="section-head" data-reveal>
+      <h2 data-i18n="races.title">Resultados e participações</h2>
+    </div>
+    <div class="races-grid" data-reveal-group>
+      <article class="race-card" data-reveal>
+        <img loading="lazy" decoding="async" src="fotos/joao-corrida-comemoracao.jpeg" alt="João comemorando após conquistar o título de campeão brasileiro de duatlo">
+        <div class="race-card-body">
+          <span class="race-tag" data-i18n="races.card4.tag">Duatlo</span>
+          <h3 data-i18n="races.card4.title">Brasileiro de Duatlo Sprint 2025</h3>
+          <p data-i18n="races.card4.desc">1º lugar, Categoria infantil, masculino 12 anos</p>
+        </div>
+      </article>
+      <article class="race-card" data-reveal>
+        <img loading="lazy" decoding="async" src="fotos/joao-corrida-lago.jpeg" alt="João correndo à beira do lago durante etapa de corrida">
+        <div class="race-card-body">
+          <span class="race-tag" data-i18n="races.card2.tag">Corrida</span>
+          <h3 data-i18n="races.card2.title">Etapa Sprint, Lago</h3>
+          <p data-i18n="races.card2.desc">Categoria de base</p>
+        </div>
+      </article>
+      <article class="race-card" data-reveal>
+        <img loading="lazy" decoding="async" src="fotos/joao-ciclismo-curva.jpeg" alt="João em curva durante etapa de ciclismo, ladeado por vegetação">
+        <div class="race-card-body">
+          <span class="race-tag" data-i18n="races.card3.tag">Ciclismo</span>
+          <h3 data-i18n="races.card3.title">Circuito Regional</h3>
+          <p data-i18n="races.card3.desc">Categoria juvenil</p>
+        </div>
+      </article>
+      <article class="race-card" data-reveal>
+        <img loading="lazy" decoding="async" src="fotos/joao-triatlo-transicao.jpeg" alt="João saindo da água durante etapa de triatlo" style="object-position: center 25%;">
+        <div class="race-card-body">
+          <span class="race-tag" data-i18n="races.card5.tag">Natação, Ciclismo, Corrida</span>
+          <h3 data-i18n="races.card5.title">Brasileiro de Triatlo Sprint, Etapa 3 (Indaiatuba)</h3>
+          <p data-i18n="races.card5.desc">51º geral, Categoria 6</p>
+        </div>
+      </article>
+      <article class="race-card" data-reveal>
+        <img loading="lazy" decoding="async" src="fotos/joao-ciclismo-faixa.jpeg" alt="João pedalando em faixa de pedestres durante prova de ciclismo" style="object-position: center 30%;">
+        <div class="race-card-body">
+          <span class="race-tag" data-i18n="races.card6.tag">Ciclismo</span>
+          <h3 data-i18n="races.card6.title">Copa Norte Nordeste 2026, Circuito</h3>
+          <p data-i18n="races.card6.desc">7º colocado, Categoria infanto-juvenil</p>
+        </div>
+      </article>
+      <article class="race-card" data-reveal>
+        <img loading="lazy" decoding="async" src="fotos/joao-ciclismo-entardecer.jpeg" alt="João pedalando ao entardecer durante prova de ciclismo">
+        <div class="race-card-body">
+          <span class="race-tag" data-i18n="races.card7.tag">Ciclismo</span>
+          <h3 data-i18n="races.card7.title">Copa Norte Nordeste 2026, Resistência</h3>
+          <p data-i18n="races.card7.desc">3º colocado, Categoria infanto-juvenil</p>
+        </div>
+      </article>
+      <article class="race-card" data-reveal>
+        <img loading="lazy" decoding="async" src="fotos/joao-ciclismo-van.jpeg" alt="João pedalando ao lado de van de equipe durante prova de ciclismo" style="object-position: center 35%;">
+        <div class="race-card-body">
+          <span class="race-tag" data-i18n="races.card8.tag">Ciclismo</span>
+          <h3 data-i18n="races.card8.title">Copa Norte Nordeste 2026, Contra-relógio</h3>
+          <p data-i18n="races.card8.desc">2º colocado, Categoria infanto-juvenil</p>
+        </div>
+      </article>
+      <article class="race-card" data-reveal>
+        <img loading="lazy" decoding="async" src="fotos/joao-hero-ciclismo.jpeg" alt="João em posição aerodinâmica no ciclismo">
+        <div class="race-card-body">
+          <span class="race-tag" data-i18n="races.card9.tag">Ciclismo</span>
+          <h3 data-i18n="races.card9.title">Copa Norte Nordeste 2025, Circuito</h3>
+          <p data-i18n="races.card9.desc">8º colocado, Categoria infanto-juvenil</p>
+        </div>
+      </article>
+      <article class="race-card" data-reveal>
+        <img loading="lazy" decoding="async" src="fotos/joao-ciclismo-curva.jpeg" alt="João em curva durante etapa de ciclismo, ladeado por vegetação">
+        <div class="race-card-body">
+          <span class="race-tag" data-i18n="races.card10.tag">Ciclismo</span>
+          <h3 data-i18n="races.card10.title">Copa Norte Nordeste 2025, Resistência</h3>
+          <p data-i18n="races.card10.desc">8º colocado, Categoria infanto-juvenil</p>
+        </div>
+      </article>
+      <article class="race-card" data-reveal>
+        <img loading="lazy" decoding="async" src="fotos/joao-ciclismo-faixa.jpeg" alt="João pedalando em faixa de pedestres durante prova de ciclismo" style="object-position: center 30%;">
+        <div class="race-card-body">
+          <span class="race-tag" data-i18n="races.card11.tag">Ciclismo</span>
+          <h3 data-i18n="races.card11.title">Copa Norte Nordeste 2025, Contra-relógio</h3>
+          <p data-i18n="races.card11.desc">8º colocado, Categoria infanto-juvenil</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="races-table-wrap" data-reveal>
+      <h3 class="races-table-title" data-i18n="races.table.title">Resumo dos resultados</h3>
+      <table class="races-table">
+        <thead>
+          <tr>
+            <th data-i18n="races.table.prova">Prova</th>
+            <th data-i18n="races.table.modalidade">Modalidade</th>
+            <th data-i18n="races.table.resultado">Resultado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-i18n="races.card4.title">Brasileiro de Duatlo Sprint 2025</td>
+            <td data-i18n="races.card4.tag">Duatlo</td>
+            <td data-i18n="races.card4.desc">1º lugar, Categoria infantil, masculino 12 anos</td>
+          </tr>
+          <tr>
+            <td data-i18n="races.card2.title">Etapa Sprint, Lago</td>
+            <td data-i18n="races.card2.tag">Corrida</td>
+            <td data-i18n="races.card2.desc">Categoria de base</td>
+          </tr>
+          <tr>
+            <td data-i18n="races.card3.title">Circuito Regional</td>
+            <td data-i18n="races.card3.tag">Ciclismo</td>
+            <td data-i18n="races.card3.desc">Categoria juvenil</td>
+          </tr>
+          <tr>
+            <td data-i18n="races.card5.title">Brasileiro de Triatlo Sprint, Etapa 3 (Indaiatuba)</td>
+            <td data-i18n="races.card5.tag">Natação, Ciclismo, Corrida</td>
+            <td data-i18n="races.card5.desc">51º geral, Categoria 6</td>
+          </tr>
+          <tr>
+            <td data-i18n="races.card6.title">Copa Norte Nordeste 2026, Circuito</td>
+            <td data-i18n="races.card6.tag">Ciclismo</td>
+            <td data-i18n="races.card6.desc">7º colocado, Categoria infanto-juvenil</td>
+          </tr>
+          <tr>
+            <td data-i18n="races.card7.title">Copa Norte Nordeste 2026, Resistência</td>
+            <td data-i18n="races.card7.tag">Ciclismo</td>
+            <td data-i18n="races.card7.desc">3º colocado, Categoria infanto-juvenil</td>
+          </tr>
+          <tr>
+            <td data-i18n="races.card8.title">Copa Norte Nordeste 2026, Contra-relógio</td>
+            <td data-i18n="races.card8.tag">Ciclismo</td>
+            <td data-i18n="races.card8.desc">2º colocado, Categoria infanto-juvenil</td>
+          </tr>
+          <tr>
+            <td data-i18n="races.card9.title">Copa Norte Nordeste 2025, Circuito</td>
+            <td data-i18n="races.card9.tag">Ciclismo</td>
+            <td data-i18n="races.card9.desc">8º colocado, Categoria infanto-juvenil</td>
+          </tr>
+          <tr>
+            <td data-i18n="races.card10.title">Copa Norte Nordeste 2025, Resistência</td>
+            <td data-i18n="races.card10.tag">Ciclismo</td>
+            <td data-i18n="races.card10.desc">8º colocado, Categoria infanto-juvenil</td>
+          </tr>
+          <tr>
+            <td data-i18n="races.card11.title">Copa Norte Nordeste 2025, Contra-relógio</td>
+            <td data-i18n="races.card11.tag">Ciclismo</td>
+            <td data-i18n="races.card11.desc">8º colocado, Categoria infanto-juvenil</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- GALERIA -->
+  <section class="gallery" id="galeria">
+    <div class="section-head" data-reveal>
+      <h2 data-i18n="gallery.title">Momentos das provas e treinos</h2>
+    </div>
+    <div class="gallery-slider-wrap" data-reveal>
+      <button class="gallery-nav gallery-nav--prev" aria-label="Foto anterior">&#8249;</button>
+      <div class="gallery-slider" id="gallerySlider">
+        <button class="gallery-item" data-lightbox="fotos/joao-hero-ciclismo.jpeg"><img loading="lazy" decoding="async" src="fotos/joao-hero-ciclismo.jpeg" alt="João em posição aerodinâmica no ciclismo"></button>
+        <button class="gallery-item" data-lightbox="fotos/joao-triatlo-transicao.jpeg"><img loading="lazy" decoding="async" src="fotos/joao-triatlo-transicao.jpeg" alt="João saindo da água durante etapa de triatlo"></button>
+        <button class="gallery-item" data-lightbox="fotos/joao-ciclismo-entardecer.jpeg"><img loading="lazy" decoding="async" src="fotos/joao-ciclismo-entardecer.jpeg" alt="João pedalando ao entardecer durante prova de ciclismo"></button>
+        <button class="gallery-item" data-lightbox="fotos/joao-natacao-saida.jpeg"><img loading="lazy" decoding="async" src="fotos/joao-natacao-saida.jpeg" alt="João saindo da água"></button>
+        <button class="gallery-item" data-lightbox="fotos/joao-corrida-lago.jpeg"><img loading="lazy" decoding="async" src="fotos/joao-corrida-lago.jpeg" alt="João correndo à beira do lago"></button>
+        <button class="gallery-item" data-lightbox="fotos/joao-ciclismo-van.jpeg"><img loading="lazy" decoding="async" src="fotos/joao-ciclismo-van.jpeg" alt="João pedalando ao lado de van de equipe durante prova de ciclismo"></button>
+        <button class="gallery-item" data-lightbox="fotos/joao-corrida-contraluz.jpeg"><img loading="lazy" decoding="async" src="fotos/joao-corrida-contraluz.jpeg" alt="João correndo em contraluz"></button>
+        <button class="gallery-item" data-lightbox="fotos/joao-natacao-largada.jpeg"><img loading="lazy" decoding="async" src="fotos/joao-natacao-largada.jpeg" alt="João concentrado na largada da natação, cercado por outros atletas"></button>
+        <button class="gallery-item" data-lightbox="fotos/joao-corrida-comemoracao.jpeg"><img loading="lazy" decoding="async" src="fotos/joao-corrida-comemoracao.jpeg" alt="João comemorando durante prova"></button>
+        <button class="gallery-item" data-lightbox="fotos/joao-ciclismo-faixa.jpeg"><img loading="lazy" decoding="async" src="fotos/joao-ciclismo-faixa.jpeg" alt="João pedalando em faixa de pedestres durante prova de ciclismo"></button>
+        <button class="gallery-item" data-lightbox="fotos/joao-ciclismo-curva.jpeg"><img loading="lazy" decoding="async" src="fotos/joao-ciclismo-curva.jpeg" alt="João em curva no ciclismo"></button>
+      </div>
+      <button class="gallery-nav gallery-nav--next" aria-label="Próxima foto">&#8250;</button>
+    </div>
+  </section>
+
+  <!-- REDES SOCIAIS -->
+  <section class="social" data-reveal>
+    <h2 data-i18n="social.title">Siga a jornada em tempo real</h2>
+    <div class="social-links">
+      <a href="https://www.instagram.com/tri.fuguete/" target="_blank" rel="noopener" class="social-link">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+        Instagram
+      </a>
+      <a href="https://www.strava.com/athletes/198053718" target="_blank" rel="noopener" class="social-link">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M13 3 6 14h5l-1 7 7-11h-5l1-7Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+        Strava
+      </a>
+    </div>
+  </section>
+
+  <!-- APOIADORES -->
+  <section class="supporters" id="apoiadores">
+    <div class="section-head" data-reveal>
+      <h2 data-i18n="supporters.title">Marcas e pessoas que acreditam no João</h2>
+    </div>
+    <div class="supporters-grid" data-reveal-group>
+      <a href="#" class="supporter-card" data-reveal>
+        <img loading="lazy" decoding="async" src="fotos/apoiador-capacete-cia.png" data-i18n-alt="supporters.logoAlt" alt="Capacete & Cia, apoiador">
+      </a>
+      <a href="#" class="supporter-card" data-reveal>
+        <img loading="lazy" decoding="async" src="fotos/apoiador-atletica-nacional.png" data-i18n-alt="supporters.logo2Alt" alt="Atlética Nacional, apoiadora">
+      </a>
+      <a href="#" class="supporter-card" data-reveal>
+        <img loading="lazy" decoding="async" src="fotos/apoiador-raphaella-cabral.png" data-i18n-alt="supporters.logo3Alt" alt="Raphaella Cabral Nutricionista, apoiadora">
+      </a>
+      <a href="#" class="supporter-card" data-reveal>
+        <img loading="lazy" decoding="async" src="fotos/apoiador-esportes-com-jesus.png" data-i18n-alt="supporters.logo4Alt" alt="#Esportes com Jesus, apoiador">
+      </a>
+      <a href="#" class="supporter-card" data-reveal>
+        <img loading="lazy" decoding="async" src="fotos/apoiador-nat-turismo.png" data-i18n-alt="supporters.logo5Alt" alt="NAT Turismo, apoiador">
+      </a>
+    </div>
+    <div class="supporters-cta" data-reveal>
+      <p data-i18n="supporters.ctaText">Quer ver a marca da sua empresa aqui também?</p>
+      <button class="btn btn-accent" data-open-modal data-i18n="supporters.ctaBtn">Quero apoiar</button>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta" data-reveal>
+    <h2 data-i18n="cta.title">Deseja ser um apoiador?</h2>
+    <p data-i18n="cta.desc">Apoiar o João é investir em disciplina, superação e numa história que está apenas começando. Visibilidade da sua marca ao lado de valores que qualquer comunidade quer ver de perto.</p>
+    <button class="btn btn-accent btn-lg" data-open-modal data-i18n="cta.btn">Quero apoiar →</button>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="logo-mark"><img loading="lazy" decoding="async" src="fotos/joao-logo-jf.png" alt="JF"></span>
+      <span class="logo-text">João Fuguete</span>
+    </div>
+    <nav class="footer-nav">
+      <a href="#sobre" data-i18n="nav.sobre">Sobre</a>
+      <a href="#trajetoria" data-i18n="nav.trajetoria">Trajetória</a>
+      <a href="#provas" data-i18n="nav.provas">Provas</a>
+      <a href="#galeria" data-i18n="nav.galeria">Galeria</a>
+      <a href="#apoiadores" data-i18n="nav.apoiadores">Apoiadores</a>
+    </nav>
+    <div class="footer-contact">
+      <span data-i18n="footer.contactLabel">Contato do responsável</span>
+      <a href="https://wa.me/5592991619983" target="_blank" rel="noopener" data-i18n="footer.whatsapp">WhatsApp</a>
+    </div>
+  </div>
+  <p class="footer-note" data-i18n="footer.note">Todo contato de apoio é intermediado pelo responsável do atleta.</p>
+  <p class="footer-credit">Desenvolvido por <a href="https://instagram.com/leandropaes_" target="_blank" rel="noopener">@leandropaes_</a></p>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="modal-close" id="modalClose" data-i18n-aria-label="modal.closeLabel" aria-label="Fechar">&times;</button>
+    <h3 id="modalTitle" data-i18n="modal.title">Seja um apoiador do João</h3>
+    <p class="modal-sub" data-i18n="modal.sub">Preencha os dados abaixo e o responsável pelo atleta entrará em contato.</p>
+    <form id="supportForm">
+      <label><span data-i18n="modal.labelNome">Nome do responsável</span>
+        <input type="text" name="nome" required>
+      </label>
+      <label><span data-i18n="modal.labelRelacao">Relação com o atleta</span>
+        <input type="text" name="relacao" data-i18n-placeholder="modal.placeholderRelacao" placeholder="Ex: pai, mãe, representante de empresa" required>
+      </label>
+      <label><span data-i18n="modal.labelEmpresa">Empresa/Marca (opcional)</span>
+        <input type="text" name="empresa">
+      </label>
+      <div class="form-row">
+        <label><span data-i18n="modal.labelEmail">E-mail</span>
+          <input type="email" name="email" required>
+        </label>
+        <label><span data-i18n="modal.labelWhatsapp">WhatsApp</span>
+          <input type="tel" name="whatsapp" required>
+        </label>
+      </div>
+      <label><span data-i18n="modal.labelMensagem">Mensagem</span>
+        <textarea name="mensagem" rows="3" data-i18n-placeholder="modal.placeholderMensagem" placeholder="O que gostaria de oferecer: patrocínio financeiro, equipamento, inscrição em provas..."></textarea>
+      </label>
+      <button type="submit" class="btn btn-accent btn-lg" data-i18n="modal.submitBtn">Enviar mensagem</button>
+      <p class="form-note" data-i18n="modal.formNote">Como João tem 14 anos, todo contato de apoio é intermediado por seu responsável.</p>
+    </form>
+    <div class="form-success" id="formSuccess">
+      <p data-i18n="modal.successMsg">Mensagem enviada! O responsável do João vai entrar em contato em breve.</p>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
