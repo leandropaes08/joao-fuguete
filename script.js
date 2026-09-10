@@ -153,17 +153,33 @@ telefoneInput?.addEventListener('input', (e) => {
   e.target.value = formatPhoneBR(e.target.value);
 });
 
+// Toggle "Empresa/Marca" <-> "Nome" label depending on Pessoa física / Empresa
+const empresaLabel = document.getElementById('empresaLabel');
+function updateEmpresaLabel() {
+  const tipo = document.querySelector('input[name="tipo"]:checked')?.value;
+  const key = tipo === 'pessoa' ? 'modal.labelNomePF' : 'modal.labelEmpresa';
+  const lang = localStorage.getItem('joao-lang') || 'pt';
+  if (empresaLabel) {
+    empresaLabel.textContent = translations[lang][key];
+    empresaLabel.dataset.i18n = key;
+  }
+}
+document.querySelectorAll('input[name="tipo"]').forEach(radio => {
+  radio.addEventListener('change', updateEmpresaLabel);
+});
+
 const GUARDIAN_WHATSAPP = '5592991619983';
 
 supportForm?.addEventListener('submit', (e) => {
   e.preventDefault();
   const data = new FormData(supportForm);
   const tipo = data.get('tipo') === 'empresa' ? 'Empresa' : 'Pessoa física';
+  const empresaFieldLabel = data.get('tipo') === 'pessoa' ? 'Nome' : 'Empresa/Marca';
   const message = [
     'Novo interesse em apoiar o João!',
     '',
     `Tipo: ${tipo}`,
-    `Empresa/Marca: ${data.get('empresa') || '-'}`,
+    `${empresaFieldLabel}: ${data.get('empresa') || '-'}`,
     `E-mail: ${data.get('email')}`,
     `Telefone: ${data.get('telefone')}`,
     `Mensagem: ${data.get('mensagem') || '-'}`,
@@ -399,6 +415,7 @@ const translations = {
     'modal.tipoPessoa': 'Pessoa física',
     'modal.tipoEmpresa': 'Empresa',
     'modal.labelEmpresa': 'Empresa/Marca (opcional)',
+    'modal.labelNomePF': 'Nome (opcional)',
     'modal.labelEmail': 'E-mail',
     'modal.labelTelefone': 'Telefone',
     'modal.labelMensagem': 'Mensagem',
@@ -546,6 +563,7 @@ const translations = {
     'modal.tipoPessoa': 'An individual',
     'modal.tipoEmpresa': 'A company',
     'modal.labelEmpresa': 'Company/Brand (optional)',
+    'modal.labelNomePF': 'Name (optional)',
     'modal.labelEmail': 'Email',
     'modal.labelTelefone': 'Phone',
     'modal.labelMensagem': 'Message',
