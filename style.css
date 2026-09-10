@@ -610,6 +610,16 @@ h1, h2, h3 {
 .modal-sub { font-size: 0.85rem; margin-bottom: 1.4rem; color: var(--text-muted); }
 #supportForm { display: flex; flex-direction: column; gap: 1rem; }
 .modal label { display: flex; flex-direction: column; gap: 0.4rem; font-size: 0.78rem; font-weight: 700; color: var(--text-muted); }
+.form-toggle-field { display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.78rem; font-weight: 700; color: var(--text-muted); }
+.form-toggle { display: flex; background: var(--panel-2); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 3px; gap: 3px; }
+.form-toggle-option {
+  flex: 1; display: flex; align-items: center; justify-content: center;
+  padding: 0.6rem 0.8rem; border-radius: calc(var(--radius-sm) - 3px);
+  font-size: 0.85rem; font-weight: 600; color: var(--text-muted);
+  cursor: pointer; transition: background 0.15s ease, color 0.15s ease;
+}
+.form-toggle-option input { position: absolute; opacity: 0; pointer-events: none; }
+.form-toggle-option:has(input:checked) { background: var(--brand); color: var(--brand-text); }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 .modal input, .modal textarea {
   background: var(--panel-2);

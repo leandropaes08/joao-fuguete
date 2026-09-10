@@ -140,19 +140,32 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeModal();
 });
 
+// Phone input mask (Brazilian format)
+const telefoneInput = document.getElementById('telefoneInput');
+function formatPhoneBR(value) {
+  const digits = value.replace(/\D/g, '').slice(0, 11);
+  if (digits.length <= 2) return digits.replace(/^(\d*)/, '($1');
+  if (digits.length <= 6) return digits.replace(/^(\d{2})(\d*)/, '($1) $2');
+  if (digits.length <= 10) return digits.replace(/^(\d{2})(\d{4})(\d*)/, '($1) $2-$3');
+  return digits.replace(/^(\d{2})(\d{5})(\d*)/, '($1) $2-$3');
+}
+telefoneInput?.addEventListener('input', (e) => {
+  e.target.value = formatPhoneBR(e.target.value);
+});
+
 const GUARDIAN_WHATSAPP = '5592991619983';
 
 supportForm?.addEventListener('submit', (e) => {
   e.preventDefault();
   const data = new FormData(supportForm);
+  const tipo = data.get('tipo') === 'empresa' ? 'Empresa' : 'Pessoa física';
   const message = [
     'Novo interesse em apoiar o João!',
     '',
-    `Nome do responsável: ${data.get('nome')}`,
-    `Relação com o atleta: ${data.get('relacao')}`,
+    `Tipo: ${tipo}`,
     `Empresa/Marca: ${data.get('empresa') || '-'}`,
     `E-mail: ${data.get('email')}`,
-    `WhatsApp: ${data.get('whatsapp')}`,
+    `Telefone: ${data.get('telefone')}`,
     `Mensagem: ${data.get('mensagem') || '-'}`,
   ].join('\n');
   window.open(`https://wa.me/${GUARDIAN_WHATSAPP}?text=${encodeURIComponent(message)}`, '_blank');
@@ -382,12 +395,12 @@ const translations = {
     'modal.closeLabel': 'Fechar',
     'modal.title': 'Seja um apoiador do João',
     'modal.sub': 'Preencha os dados abaixo e o responsável pelo atleta entrará em contato.',
-    'modal.labelNome': 'Nome do responsável',
-    'modal.labelRelacao': 'Relação com o atleta',
-    'modal.placeholderRelacao': 'Ex: pai, mãe, representante de empresa',
+    'modal.labelTipo': 'Você é',
+    'modal.tipoPessoa': 'Pessoa física',
+    'modal.tipoEmpresa': 'Empresa',
     'modal.labelEmpresa': 'Empresa/Marca (opcional)',
     'modal.labelEmail': 'E-mail',
-    'modal.labelWhatsapp': 'WhatsApp',
+    'modal.labelTelefone': 'Telefone',
     'modal.labelMensagem': 'Mensagem',
     'modal.placeholderMensagem': 'O que gostaria de oferecer: patrocínio financeiro, equipamento, inscrição em provas...',
     'modal.submitBtn': 'Enviar mensagem',
@@ -529,12 +542,12 @@ const translations = {
     'modal.closeLabel': 'Close',
     'modal.title': 'Become a supporter of João',
     'modal.sub': "Fill in the details below and the athlete's guardian will get in touch.",
-    'modal.labelNome': "Guardian's name",
-    'modal.labelRelacao': 'Relationship to the athlete',
-    'modal.placeholderRelacao': 'E.g.: father, mother, company representative',
+    'modal.labelTipo': 'You are',
+    'modal.tipoPessoa': 'An individual',
+    'modal.tipoEmpresa': 'A company',
     'modal.labelEmpresa': 'Company/Brand (optional)',
     'modal.labelEmail': 'Email',
-    'modal.labelWhatsapp': 'WhatsApp',
+    'modal.labelTelefone': 'Phone',
     'modal.labelMensagem': 'Message',
     'modal.placeholderMensagem': 'What you would like to offer: financial sponsorship, equipment, race entry fees...',
     'modal.submitBtn': 'Send message',

@@ -490,21 +490,28 @@
     <h3 id="modalTitle" data-i18n="modal.title">Seja um apoiador do João</h3>
     <p class="modal-sub" data-i18n="modal.sub">Preencha os dados abaixo e o responsável pelo atleta entrará em contato.</p>
     <form id="supportForm">
-      <label><span data-i18n="modal.labelNome">Nome do responsável</span>
-        <input type="text" name="nome" required>
-      </label>
-      <label><span data-i18n="modal.labelRelacao">Relação com o atleta</span>
-        <input type="text" name="relacao" data-i18n-placeholder="modal.placeholderRelacao" placeholder="Ex: pai, mãe, representante de empresa" required>
-      </label>
+      <div class="form-toggle-field">
+        <span data-i18n="modal.labelTipo">Você é</span>
+        <div class="form-toggle" role="radiogroup">
+          <label class="form-toggle-option">
+            <input type="radio" name="tipo" value="pessoa" checked>
+            <span data-i18n="modal.tipoPessoa">Pessoa física</span>
+          </label>
+          <label class="form-toggle-option">
+            <input type="radio" name="tipo" value="empresa">
+            <span data-i18n="modal.tipoEmpresa">Empresa</span>
+          </label>
+        </div>
+      </div>
       <label><span data-i18n="modal.labelEmpresa">Empresa/Marca (opcional)</span>
         <input type="text" name="empresa">
       </label>
       <div class="form-row">
         <label><span data-i18n="modal.labelEmail">E-mail</span>
-          <input type="email" name="email" required>
+          <input type="email" name="email" inputmode="email" placeholder="nome@email.com" required>
         </label>
-        <label><span data-i18n="modal.labelWhatsapp">WhatsApp</span>
-          <input type="tel" name="whatsapp" required>
+        <label><span data-i18n="modal.labelTelefone">Telefone</span>
+          <input type="tel" name="telefone" id="telefoneInput" inputmode="numeric" placeholder="(00) 00000-0000" maxlength="15" required>
         </label>
       </div>
       <label><span data-i18n="modal.labelMensagem">Mensagem</span>
