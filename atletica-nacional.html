@@ -183,7 +183,12 @@
     font-family: var(--font-display); font-weight: 800; font-size: clamp(2rem, 5vw, 3.2rem);
     color: var(--navy-deep); margin: 0 0 0.8rem; text-transform: uppercase; letter-spacing: -0.01em;
   }
-  .an-cta p { max-width: 440px; margin: 0 auto 2rem; }
+  .an-cta p { max-width: 440px; margin: 0 auto 1.6rem; }
+  .an-cta-info {
+    display: flex; justify-content: center; flex-wrap: wrap;
+    gap: 0.5rem 1.4rem; margin: 0 auto 2rem;
+    font-size: 0.82rem; font-weight: 600; color: rgba(8,22,39,0.7);
+  }
   .an-cta .an-btn--fill { background: var(--navy-deep); color: var(--text); }
 
   .an-footer { padding: 2rem 1.5rem 3rem; text-align: center; font-size: 0.8rem; color: var(--text-dim); }
@@ -272,6 +277,11 @@
   <section class="an-cta">
     <h2>Treinem conosco</h2>
     <p>Conheça a Atlética Nacional e todos os canais oficiais da marca.</p>
+    <div class="an-cta-info">
+      <span>Seg a Sex: 05h às 22h</span>
+      <span>Sáb: 07h às 14h</span>
+      <span>Estacionamento grátis</span>
+    </div>
     <a class="an-btn an-btn--fill" href="https://linktr.ee/atleticanacional" target="_blank" rel="noopener">Ver Linktree &#8594;</a>
   </section>
 
