@@ -120,6 +120,23 @@ h1, h2, h3 {
 .btn-outline:hover { border-color: rgba(255,255,255,0.5); }
 .btn-sm { padding: 0.5rem 1.1rem; font-size: 0.75rem; }
 .btn-lg { padding: 1.05rem 2.2rem; font-size: 1rem; }
+.btn-text-only {
+  background: transparent;
+  border: none;
+  padding: 0.2rem 0;
+  border-radius: 0;
+  color: var(--text);
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+  transition: background-size 0.35s ease, color 0.2s ease, transform 0.15s ease;
+}
+.btn-text-only:hover {
+  background-size: 100% 2px;
+  color: var(--brand);
+  transform: translateY(-2px);
+}
 
 /* ============ HERO ============ */
 .hero { width: 100%; }
@@ -749,7 +766,7 @@ h1, h2, h3 {
   .main-nav a { padding: 0.75rem 0; border-bottom: 1px solid var(--border-soft); }
   .main-nav a:last-child { border-bottom: none; }
   .nav-toggle { display: flex; }
-  .header-actions .btn-accent { display: none; }
+  .header-actions .btn-text-only { display: none; }
 
   .hero-banner { height: auto; min-height: 560px; }
   .hero-banner-side { width: 40px; font-size: 0.65rem; }
