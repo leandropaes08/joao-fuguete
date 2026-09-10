@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atlética Nacional · Patrocinador Gold — João Fuguete</title>
+<meta name="description" content="Atlética Nacional, patrocinadora Gold de João Fuguete, atleta de triatlo.">
+
+<link rel="icon" type="image/png" href="fotos/joao-logo-jf.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --navy: #112e51;
+    --navy-deep: #0a1c33;
+    --orange: #ff6e0b;
+    --text: #ffffff;
+    --text-muted: rgba(255,255,255,0.68);
+    --text-dim: rgba(255,255,255,0.4);
+    --font-display: 'Bricolage Grotesque', 'Manrope', sans-serif;
+    --font-body: 'Manrope', sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--navy-deep);
+    color: var(--text-muted);
+    font-family: var(--font-body);
+    line-height: 1.6;
+  }
+  a { color: inherit; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 1.5rem; }
+
+  .an-nav {
+    padding: 1.4rem 1.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .an-back {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-size: 0.85rem; font-weight: 600; text-decoration: none;
+    color: var(--text-muted);
+    transition: color 0.15s ease;
+  }
+  .an-back:hover { color: var(--text); }
+
+  .an-hero {
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(255,110,11,0.18) 0%, transparent 70%), var(--navy);
+    padding: 4.5rem 1.5rem 5rem;
+    text-align: center;
+  }
+  .an-hero-badge {
+    font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase;
+    font-weight: 800; color: var(--orange);
+    margin: 0 0 1.8rem;
+  }
+  .an-hero img {
+    width: 100%; max-width: 480px; height: auto;
+    margin: 0 auto 1.8rem;
+    display: block;
+  }
+  .an-hero p {
+    max-width: 480px; margin: 0 auto; font-size: 1.05rem; color: var(--text-muted);
+  }
+
+  .an-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+    background: rgba(255,255,255,0.08);
+  }
+  .an-panel {
+    padding: 3rem 2rem;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; gap: 0.8rem;
+    min-height: 220px;
+  }
+  .an-panel--navy { background: var(--navy-deep); }
+  .an-panel--orange { background: var(--orange); color: var(--navy-deep); }
+  .an-panel-wordmark {
+    font-family: var(--font-display); font-weight: 800; font-size: 1.7rem;
+    letter-spacing: -0.01em; text-transform: uppercase;
+    color: var(--navy-deep);
+  }
+  .an-panel--navy p { color: var(--text-muted); font-size: 0.98rem; margin: 0; }
+  .an-panel--orange p { color: rgba(10,28,51,0.75); font-size: 0.98rem; margin: 0; }
+  .an-panel-label {
+    font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700;
+  }
+  .an-panel--navy .an-panel-label { color: var(--orange); }
+  .an-panel--orange .an-panel-label { color: rgba(10,28,51,0.6); }
+
+  .an-cta {
+    padding: 4.5rem 1.5rem 6rem;
+    text-align: center;
+  }
+  .an-cta h2 {
+    font-family: var(--font-display); font-size: 1.6rem; color: var(--text);
+    margin: 0 0 0.8rem;
+  }
+  .an-cta p { max-width: 440px; margin: 0 auto 2rem; }
+  .an-cta-btn {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--orange); color: var(--navy-deep);
+    font-weight: 700; font-size: 0.95rem;
+    padding: 0.9rem 2rem; border-radius: 999px;
+    text-decoration: none;
+    transition: transform 0.15s ease;
+  }
+  .an-cta-btn:hover { transform: translateY(-2px); }
+
+  .an-footer {
+    padding: 2rem 1.5rem 3rem;
+    text-align: center;
+    font-size: 0.8rem; color: var(--text-dim);
+  }
+  .an-footer a { text-decoration: underline; text-underline-offset: 3px; }
+
+  @media (max-width: 640px) {
+    .an-grid { grid-template-columns: 1fr; }
+    .an-hero { padding: 3.5rem 1.25rem 3.5rem; }
+    .an-cta { padding: 3.5rem 1.25rem 4rem; }
+  }
+</style>
+</head>
+<body>
+
+  <nav class="an-nav">
+    <a href="index.html#apoiadores" class="an-back">&#8592; João Fuguete</a>
+  </nav>
+
+  <header class="an-hero">
+    <p class="an-hero-badge">Patrocinador Gold</p>
+    <img src="fotos/apoiador-atletica-nacional.webp" alt="Atlética Nacional">
+    <p>Marca que acredita e impulsiona a jornada de João Fuguete no triatlo, com o maior aporte entre os apoiadores.</p>
+  </header>
+
+  <section class="an-grid">
+    <div class="an-panel an-panel--navy">
+      <span class="an-panel-label">Parceria</span>
+      <p>Apoio contínuo às provas, treinos e equipamentos de João desde 2026.</p>
+    </div>
+    <div class="an-panel an-panel--orange">
+      <span class="an-panel-wordmark">Atlética Nacional</span>
+    </div>
+    <div class="an-panel an-panel--orange">
+      <span class="an-panel-label">Sobre</span>
+      <p>Atlética voltada à performance e ao incentivo do esporte de base.</p>
+    </div>
+    <div class="an-panel an-panel--navy">
+      <span class="an-panel-label">Obrigado</span>
+      <p>João agradece pelo apoio Gold que torna essa jornada possível.</p>
+    </div>
+  </section>
+
+  <section class="an-cta">
+    <h2>Conheça a Atlética Nacional</h2>
+    <p>Acompanhe a marca e todos os canais oficiais no link abaixo.</p>
+    <a class="an-cta-btn" href="https://linktr.ee/atleticanacional" target="_blank" rel="noopener">
+      Ver Linktree &#8594;
+    </a>
+  </section>
+
+  <footer class="an-footer">
+    <a href="index.html#apoiadores">Voltar para o site do João Fuguete</a>
+  </footer>
+
+</body>
+</html>
