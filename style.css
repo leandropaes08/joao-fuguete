@@ -647,10 +647,24 @@ h1, h2, h3 {
   pointer-events: none;
 }
 
-/* Gold sponsor: pulled out of the scrolling strip into its own featured slot */
+/* Gold sponsor: pulled out of the scrolling strip into its own featured slot,
+   with an ambient glow in Atlética Nacional's own brand colors behind it. */
 .supporters-gold {
+  position: relative;
   display: flex; flex-direction: column; align-items: center; gap: 0.9rem;
+  padding: 1.5rem 1rem;
   margin-bottom: 2.6rem;
+}
+.supporters-gold::before {
+  content: '';
+  position: absolute;
+  inset: -30px;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse 60% 70% at 30% 40%, rgba(255,110,11,0.22) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 70% at 70% 60%, rgba(17,46,81,0.55) 0%, transparent 70%);
+  filter: blur(30px);
+  pointer-events: none;
 }
 .supporters-gold-badge {
   font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase;
