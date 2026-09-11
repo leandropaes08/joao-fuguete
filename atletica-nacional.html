@@ -6,7 +6,8 @@
 <title>Atlética Nacional · Patrocinador Gold — João Fuguete</title>
 <meta name="description" content="Atlética Nacional, patrocinadora Gold de João Fuguete, atleta de triatlo.">
 
-<link rel="icon" type="image/png" href="fotos/joao-logo-jf.png">
+<link rel="icon" type="image/png" href="fotos/favicon-n-32.png">
+<link rel="apple-touch-icon" href="fotos/favicon-n-180.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,6 +26,7 @@
     --font-body: 'Manrope', sans-serif;
   }
   * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
   body {
     margin: 0;
     background: var(--navy-deep);
@@ -36,10 +38,29 @@
   img { max-width: 100%; display: block; }
   .wrap { max-width: 1120px; margin: 0 auto; padding: 0 1.5rem; }
 
+  /* Scroll reveal */
+  [data-reveal] {
+    opacity: 0; transform: translateY(22px);
+    transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1);
+  }
+  [data-reveal].is-visible { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    [data-reveal] { opacity: 1; transform: none; transition: none; }
+  }
+
   /* Nav */
   .an-nav {
+    position: sticky; top: 0; z-index: 40;
     padding: 1.4rem 1.5rem;
     display: flex; align-items: center; justify-content: space-between;
+    background: var(--navy-deep);
+    border-bottom: 1px solid transparent;
+    transition: box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+  .an-nav.is-scrolled {
+    border-bottom-color: var(--border);
+    box-shadow: 0 12px 24px -18px rgba(0,0,0,0.6);
   }
   .an-back {
     display: inline-flex; align-items: center; gap: 0.5rem;
@@ -48,24 +69,51 @@
     transition: color 0.15s ease;
   }
   .an-back:hover { color: var(--text); }
-  .an-nav img { height: 28px; width: auto; opacity: 0.9; }
+  .an-nav-right { display: flex; align-items: center; gap: 1.4rem; }
+  .an-nav-aluno {
+    font-size: 0.72rem; font-weight: 700; text-decoration: none; color: var(--text-muted);
+    text-transform: uppercase; letter-spacing: 0.06em;
+    transition: color 0.15s ease;
+  }
+  .an-nav-aluno:hover { color: var(--text); }
+  .an-nav-cta {
+    font-size: 0.72rem; font-weight: 700; text-decoration: none;
+    text-transform: uppercase; letter-spacing: 0.04em;
+    color: var(--navy-deep); background: var(--orange);
+    padding: 0.55rem 1.2rem; border-radius: 999px;
+    transition: transform 0.15s ease;
+  }
+  .an-nav-cta:hover { transform: translateY(-1px); }
+  .an-nav-left { display: flex; align-items: center; gap: 2.6rem; }
+  .an-nav-links { display: flex; gap: 1.8rem; }
+  .an-nav-links a {
+    font-size: 0.72rem; font-weight: 700; text-decoration: none; color: var(--text-muted);
+    text-transform: uppercase; letter-spacing: 0.06em;
+    transition: color 0.15s ease;
+  }
+  .an-nav-links a:hover { color: var(--text); }
+  .an-brand { display: flex; align-items: center; gap: 0.7rem; }
+  .an-brand-badge {
+    display: flex; align-items: center; justify-content: center;
+    flex: none;
+  }
+  .an-brand-badge img { width: 26px; height: auto; }
 
   /* Hero */
   .an-hero {
     position: relative;
     padding: 6rem 1.5rem 5rem;
-    text-align: center;
     overflow: hidden;
   }
   .an-hero::before {
     content: '';
     position: absolute; inset: 0; z-index: 0;
     background:
-      radial-gradient(ellipse 60% 55% at 30% 20%, rgba(255,110,11,0.22) 0%, transparent 70%),
-      radial-gradient(ellipse 60% 55% at 75% 60%, rgba(17,46,81,0.7) 0%, transparent 70%);
+      linear-gradient(90deg, var(--navy-deep) 20%, rgba(8,22,39,0.55) 60%, rgba(8,22,39,0.25) 100%),
+      url('fotos/hero-teste-halteres.webp') center 60% / cover no-repeat;
   }
-  .an-hero-content { position: relative; max-width: 620px; margin: 0 auto; }
-  .an-hero-logo { width: 100%; max-width: 340px; margin: 0 auto 2rem; }
+  .an-hero-content { position: relative; }
+  .an-hero-logo { width: 100%; max-width: 340px; margin: 0 0 2rem; }
   .an-hero-eyebrow {
     font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase;
     font-weight: 800; color: var(--orange);
@@ -79,8 +127,8 @@
     text-transform: uppercase;
   }
   .an-hero h1 span { color: var(--orange); }
-  .an-hero p { max-width: 460px; margin: 0 auto 2rem; font-size: 1.02rem; }
-  .an-hero-actions { display: flex; gap: 0.9rem; flex-wrap: wrap; justify-content: center; }
+  .an-hero p { max-width: 460px; margin: 0 0 2rem; font-size: 1.02rem; }
+  .an-hero-actions { display: flex; gap: 0.9rem; flex-wrap: wrap; }
   .an-btn {
     display: inline-flex; align-items: center; gap: 0.5rem;
     font-size: 0.85rem; font-weight: 700; letter-spacing: 0.02em; text-transform: uppercase;
@@ -88,8 +136,6 @@
     text-decoration: none;
     transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
   }
-  .an-btn--fill { background: var(--orange); color: var(--navy-deep); }
-  .an-btn--fill:hover { transform: translateY(-2px); }
   .an-btn--outline {
     padding-left: 0; padding-right: 0;
     color: var(--text);
@@ -101,7 +147,8 @@
   .an-btn--outline:hover { background-size: 100% 2px; transform: none; }
 
   /* Section head */
-  .an-section { padding: 5rem 1.5rem; }
+  .an-section { padding: 5rem 1.5rem; scroll-margin-top: 76px; }
+  .an-hero, .an-cta { scroll-margin-top: 76px; }
   .an-section-head {
     display: flex; align-items: baseline; justify-content: space-between;
     gap: 1.5rem; margin-bottom: 2.5rem; flex-wrap: wrap;
@@ -113,47 +160,18 @@
   .an-section-tag {
     font-size: 0.8rem; letter-spacing: 0.08em; color: var(--text-dim); white-space: nowrap;
   }
+  #diferenciais .an-section-head h2 { color: var(--navy-deep); }
+  #diferenciais .an-section-tag { color: rgba(8,22,39,0.5); }
+  #planos .an-section-head { flex-direction: column-reverse; align-items: center; text-align: center; }
   .an-section-lead { max-width: 480px; font-size: 0.98rem; margin: -1.4rem 0 2.5rem; }
 
-  /* Bento grid */
-  .an-bento {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
-  }
-  .an-card {
-    border-radius: 8px; padding: 2rem;
-    display: flex; flex-direction: column; justify-content: flex-end;
-    min-height: 220px;
-  }
-  .an-card--wide { grid-column: span 2; background: var(--navy); }
-  .an-card--square { grid-column: span 1; background: var(--orange); color: var(--navy-deep); }
-  .an-card--brand { align-items: center; justify-content: center; text-align: center; min-height: 260px; }
-  .an-panel-wordmark {
-    font-family: var(--font-display); font-weight: 800; font-size: 1.5rem;
-    letter-spacing: -0.01em; text-transform: uppercase; line-height: 1.15;
-    color: var(--navy-deep);
-  }
-  .an-card--text { grid-column: span 2; background: var(--navy); flex-direction: row; align-items: center; justify-content: space-between; gap: 1.5rem; }
-  .an-card-label {
-    font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700;
-    margin-bottom: 0.6rem;
-  }
-  .an-card--wide .an-card-label, .an-card--text .an-card-label { color: var(--orange); }
-  .an-card--square .an-card-label { color: rgba(8,22,39,0.6); }
-  .an-card-title {
-    font-family: var(--font-display); font-weight: 800; font-size: 1.4rem; color: var(--text); margin: 0 0 0.4rem;
-  }
-  .an-card--square .an-card-title { color: var(--navy-deep); font-size: 2.4rem; }
-  .an-card p { margin: 0; font-size: 0.92rem; }
-  .an-card--square p { color: rgba(8,22,39,0.75); }
-  .an-card-statbox {
-    flex: none; border: 1px solid rgba(255,255,255,0.25); border-radius: 8px;
-    padding: 1.2rem 1.6rem; text-align: center;
-  }
-  .an-card-statbox strong { display: block; font-family: var(--font-display); font-size: 1.6rem; color: var(--text); }
-  .an-card-statbox span { font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-dim); }
 
   /* Partnership section */
-  .an-story { max-width: 640px; margin: 0 auto; text-align: center; }
+  .an-story { max-width: 640px; }
+  .an-story-tag {
+    display: inline-block; font-size: 0.8rem; letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.35); margin-bottom: 1rem;
+  }
   .an-story h2 {
     font-family: var(--font-display); font-weight: 800; font-size: clamp(1.8rem, 4vw, 2.6rem);
     color: var(--text); text-transform: uppercase; line-height: 1.05; margin: 0 0 1.4rem;
@@ -162,6 +180,103 @@
   .an-story p { margin: 0 0 1.2rem; }
   .an-story strong { color: var(--text); }
 
+  /* Features / diferenciais */
+  #diferenciais { background: #fff; }
+  .an-features {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+    background: rgba(8,22,39,0.1);
+  }
+  .an-feature {
+    background: #fff; padding: 2rem 1.6rem;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .an-feature:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 30px -20px rgba(0,0,0,0.35);
+    position: relative; z-index: 1;
+  }
+  .an-feature-index {
+    display: block; font-family: var(--font-display); font-weight: 800;
+    font-size: 0.85rem; color: var(--orange); margin-bottom: 1.4rem;
+  }
+  .an-feature h3 {
+    font-family: var(--font-display); font-weight: 800; font-size: 1.05rem;
+    color: var(--navy-deep); margin: 0 0 0.5rem; text-transform: uppercase;
+  }
+  .an-feature p { font-size: 0.88rem; margin: 0; color: rgba(8,22,39,0.6); }
+
+  /* Plans */
+  .an-plans-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: min-content;
+    gap: 1.2rem;
+    max-width: 1320px; margin: 0 auto;
+  }
+  .an-plan {
+    position: relative;
+    grid-row: span 5;
+    display: grid; grid-template-rows: subgrid;
+    text-align: center;
+    background: #fff; color: rgba(8,22,39,0.7);
+    border-radius: 12px;
+    padding: 1.5rem 1.3rem;
+  }
+  .an-plan--highlight { background: var(--navy); color: var(--text); }
+  .an-plan--highlight h3 { color: var(--text); }
+  .an-plan--highlight .an-plan-desc { color: var(--text-dim); }
+  .an-plan--highlight .an-plan-price { border-top-color: var(--border); }
+  .an-plan--highlight .an-plan-price-label { color: var(--text-dim); }
+  .an-plan--highlight .an-plan-price strong span { color: var(--text-muted); }
+  .an-plan--highlight .an-plan-note { color: var(--text-dim); }
+  .an-plan-row-spacer { min-height: 1px; }
+  .an-plan-badge {
+    position: absolute; top: -0.8rem; left: 50%; transform: translateX(-50%);
+    background: var(--orange); color: var(--navy-deep);
+    font-size: 0.68rem; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase;
+    padding: 0.35rem 0.9rem; border-radius: 999px; white-space: nowrap;
+  }
+  .an-plan-title {
+    display: flex; align-items: center; justify-content: center; gap: 0.7rem;
+    margin-bottom: 1rem;
+  }
+  .an-plan .an-plan-title h3 { margin: 0; }
+  .an-plan-logo { width: 32px; height: auto; }
+  .an-plan h3 {
+    font-family: var(--font-display); font-weight: 800; font-size: 1.1rem;
+    color: var(--navy-deep); margin: 0 0 0.6rem; text-transform: uppercase;
+  }
+  .an-plan-desc { font-size: 0.84rem; margin: 0; color: rgba(8,22,39,0.55); }
+  .an-plan-price {
+    display: flex; flex-direction: column; align-items: center; gap: 0.2rem;
+    margin: 1rem 0; padding-top: 1rem; border-top: 1px solid rgba(8,22,39,0.12);
+  }
+  .an-plan-price-label { font-size: 0.8rem; color: rgba(8,22,39,0.5); }
+  .an-plan-price strong {
+    font-family: var(--font-display); font-weight: 800; font-size: 1.5rem; color: var(--orange);
+    white-space: nowrap;
+  }
+  .an-plan-price strong span { font-size: 0.9rem; font-weight: 600; color: rgba(8,22,39,0.55); }
+  .an-plan-price--stack { flex-direction: column; gap: 0.6rem; }
+  .an-plan-price-line { display: flex; flex-direction: column; align-items: center; gap: 0.2rem; }
+  .an-plan-price-line strong {
+    font-family: var(--font-display); font-weight: 800; font-size: 1.3rem; color: var(--orange);
+    white-space: nowrap;
+  }
+  .an-plan-price-line strong span { font-size: 0.78rem; font-weight: 600; color: rgba(8,22,39,0.55); }
+  .an-plan .an-btn {
+    width: 100%; justify-content: center;
+    font-size: 0.68rem; padding: 0.75rem 0.6rem;
+  }
+  .an-plan-list {
+    list-style: none; margin: 1rem auto 0; padding: 0; width: fit-content;
+    display: grid; grid-template-columns: 1fr; gap: 0.45rem;
+    justify-items: start; text-align: left;
+    font-size: 0.78rem;
+  }
+  .an-plan-list li { display: flex; align-items: flex-start; gap: 0.4rem; }
+  .an-plan-list li::before {
+    content: '\2713'; color: var(--orange); font-weight: 700; flex: none;
+  }
+  .an-plan-note { font-size: 0.76rem; color: rgba(8,22,39,0.5); margin: 0.7rem 0 0; text-align: left; }
   /* Closing CTA banner */
   .an-cta {
     text-align: center; padding: 5.5rem 1.5rem;
@@ -177,7 +292,6 @@
     gap: 0.5rem 1.4rem; margin: 0 auto 2rem;
     font-size: 0.82rem; font-weight: 600; color: rgba(8,22,39,0.7);
   }
-  .an-cta .an-btn--fill { background: var(--navy-deep); color: var(--text); }
   .an-cta-tag { font-size: 0.85rem; font-weight: 600; color: rgba(8,22,39,0.65); }
 
   /* Footer */
@@ -195,116 +309,224 @@
   }
   .an-footer-social a:hover { color: var(--text); }
   .an-footer-cols {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 2rem;
     padding-bottom: 3rem; border-top: 1px solid var(--border); padding-top: 3rem;
   }
   .an-footer-cols h3 {
     font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700;
     color: var(--orange); margin: 0 0 1rem;
   }
-  .an-footer-cols p { font-size: 0.88rem; margin: 0 0 0.5rem; }
+  .an-footer-cols p { font-size: 0.88rem; margin: 0 0 0.5rem; color: var(--text-muted); }
   .an-footer-cols a { text-decoration: none; color: var(--text-muted); }
   .an-footer-cols a:hover { color: var(--text); }
   .an-footer-bottom {
     border-top: 1px solid var(--border);
-    padding: 1.6rem 0; text-align: center;
+    padding: 1.6rem 0 5rem;
     font-size: 0.78rem; color: var(--text-dim);
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 0.8rem;
+  }
+  .an-footer-bottom p { margin: 0; }
+  .an-footer-legal { display: flex; align-items: center; gap: 0.6rem; }
+  .an-footer-legal img { width: 14px; height: auto; opacity: 0.6; }
+
+  @media (max-width: 1150px) {
+    .an-plans-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 860px) {
+    .an-footer-cols { grid-template-columns: 1fr; gap: 1.8rem; }
+    .an-features { grid-template-columns: 1fr 1fr; }
+    .an-nav-links { display: none; }
+    .an-plans-grid { grid-template-columns: 1fr; }
   }
 
-  @media (max-width: 860px) {
-    .an-bento { grid-template-columns: 1fr; }
-    .an-card--wide, .an-card--square, .an-card--text { grid-column: span 1; }
-    .an-card--text { flex-direction: column; align-items: flex-start; }
-    .an-footer-cols { grid-template-columns: 1fr; gap: 1.8rem; }
+  /* Floating WhatsApp button */
+  .an-whatsapp {
+    position: fixed; left: 1.5rem; bottom: 1.5rem; z-index: 50;
+    width: 56px; height: 56px; border-radius: 50%;
+    background: #25d366;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 8px 20px -6px rgba(0,0,0,0.5);
+    transition: transform 0.15s ease;
   }
+  .an-whatsapp:hover { transform: translateY(-2px) scale(1.04); }
+  .an-whatsapp svg { width: 28px; height: 28px; }
 </style>
 </head>
 <body>
 
   <nav class="an-nav">
-    <a href="index.html#apoiadores" class="an-back">&#8592; João Fuguete</a>
-    <img src="fotos/apoiador-atletica-nacional.webp" alt="Atlética Nacional">
+    <div class="an-nav-left">
+      <div class="an-brand">
+        <span class="an-brand-badge"><img src="fotos/apoiador-atletica-nacional-icon-white.webp" alt=""></span>
+      </div>
+      <div class="an-nav-links">
+        <a href="#academia">Academia</a>
+        <a href="#horario">Horário das Aulas</a>
+        <a href="#planos">Planos</a>
+        <a href="#diferenciais">Diferenciais</a>
+        <a href="#sobre">Sobre</a>
+      </div>
+    </div>
+    <div class="an-nav-right">
+      <a href="https://wa.me/5592984475012" target="_blank" rel="noopener" class="an-nav-aluno">Já sou aluno</a>
+      <a href="https://linktr.ee/atleticanacional" target="_blank" rel="noopener" class="an-nav-cta">Quero ser Atlética</a>
+      <a href="index.html#apoiadores" class="an-back">&#8592; João Fuguete</a>
+    </div>
   </nav>
 
-  <header class="an-hero">
-    <div class="an-hero-content">
+  <header class="an-hero" id="academia">
+    <div class="an-hero-content" data-reveal>
       <img class="an-hero-logo" src="fotos/apoiador-atletica-nacional.webp" alt="Atlética Nacional">
-      <h1>Impulsionando cada <span>conquista</span></h1>
-      <p>A Atlética Nacional é a patrocinadora Gold de João Fuguete, apoiando sua trajetória no triatlo dentro e fora das provas.</p>
+      <h1>Ajudamos você<br>a alcançar a sua <span>melhor versão</span></h1>
+      <p>A Atlética Nacional apoia atletas amazonenses, impulsionando suas trajetórias dentro e fora das provas.</p>
       <div class="an-hero-actions">
-        <a class="an-btn an-btn--fill" href="https://linktr.ee/atleticanacional" target="_blank" rel="noopener">Ver Linktree &#8594;</a>
+        <a class="an-btn an-btn--outline" href="https://linktr.ee/atleticanacional" target="_blank" rel="noopener">Ver Linktree &#8594;</a>
         <a class="an-btn an-btn--outline" href="index.html#apoiadores">Voltar ao site</a>
       </div>
     </div>
   </header>
 
-  <section class="an-section">
+  <section class="an-section" id="diferenciais">
+    <div>
+      <div class="an-section-head" data-reveal>
+        <h2>Estrutura e modalidades</h2>
+        <span class="an-section-tag">/ Diferenciais, entre outros</span>
+      </div>
+      <div class="an-features">
+        <div class="an-feature" data-reveal>
+          <span class="an-feature-index">01</span>
+          <h3>Pilates</h3>
+          <p>Aulas voltadas a fortalecimento, postura e mobilidade.</p>
+        </div>
+        <div class="an-feature" data-reveal>
+          <span class="an-feature-index">02</span>
+          <h3>Parceria Wellhub</h3>
+          <p>Use seu plano Wellhub para treinar na Atlética Nacional.</p>
+        </div>
+        <div class="an-feature" data-reveal>
+          <span class="an-feature-index">03</span>
+          <h3>Fitdance</h3>
+          <p>Aulas de dança fitness para treinar com energia e música.</p>
+        </div>
+        <div class="an-feature" data-reveal>
+          <span class="an-feature-index">04</span>
+          <h3>Piscina olímpica</h3>
+          <p>Estrutura completa para treino de natação.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="an-section" id="planos" style="border-bottom: 1px solid var(--border);">
     <div class="wrap">
       <div class="an-section-head">
-        <h2>O apoio que impulsiona</h2>
-        <span class="an-section-tag">/ Resultados do João</span>
+        <h2>Conheça nossos planos e comece hoje</h2>
+        <span class="an-section-tag">/ Planos</span>
       </div>
-      <div class="an-bento">
-        <div class="an-card an-card--wide">
-          <span class="an-card-label">Trajetória</span>
-          <p class="an-card-title">19 provas disputadas</p>
-          <p>Cada etapa, um passo mais perto do próximo pódio.</p>
+      <div class="an-plans-grid" data-reveal>
+        <div class="an-plan an-plan--highlight">
+          <span class="an-plan-badge">Mais vantajoso</span>
+          <h3>Plano Mensal Recorrente</h3>
+          <div class="an-plan-row-spacer" aria-hidden="true"></div>
+          <div class="an-plan-price">
+            <span class="an-plan-price-label">A partir de</span>
+            <strong>R$ 119,90<span>/mês</span></strong>
+          </div>
+          <a class="an-btn an-nav-cta" href="https://wa.me/5592984475012" target="_blank" rel="noopener">Escolher meu plano</a>
+          <ul class="an-plan-list">
+            <li>Musculação</li>
+            <li>Pilates</li>
+            <li>Natação</li>
+            <li>Dança (Fitdance)</li>
+            <li>Jiu-Jítsu</li>
+            <li>Muay Thai</li>
+            <li>E muito mais</li>
+          </ul>
         </div>
-        <div class="an-card an-card--square">
-          <span class="an-card-label">Pódios</span>
-          <p class="an-card-title">+7</p>
-          <p>Pódios conquistados até aqui.</p>
+        <div class="an-plan">
+          <h3>Plano Mensal</h3>
+          <div class="an-plan-row-spacer" aria-hidden="true"></div>
+          <div class="an-plan-price">
+            <span class="an-plan-price-label">A partir de</span>
+            <strong>R$ 169,90<span>/mês</span></strong>
+          </div>
+          <a class="an-btn an-nav-cta" href="https://wa.me/5592984475012" target="_blank" rel="noopener">Escolher meu plano</a>
+          <ul class="an-plan-list">
+            <li>Sem fidelidade</li>
+            <li>Flexibilidade para cancelar quando quiser</li>
+            <li>Ideal para quem busca liberdade e praticidade</li>
+          </ul>
         </div>
-        <div class="an-card an-card--square an-card--brand">
-          <span class="an-panel-wordmark">Atlética<br>Nacional</span>
-        </div>
-        <div class="an-card an-card--text">
+        <div class="an-plan">
+          <h3>Plano Trimestral</h3>
+          <div class="an-plan-row-spacer" aria-hidden="true"></div>
+          <div class="an-plan-price an-plan-price--stack">
+            <div class="an-plan-price-line"><strong>R$ 389,70</strong><span class="an-plan-price-label">à vista</span></div>
+            <div class="an-plan-price-line"><strong>R$ 129,90<span>/mês</span></strong><span class="an-plan-price-label">3x no cartão</span></div>
+          </div>
+          <a class="an-btn an-nav-cta" href="https://wa.me/5592984475012" target="_blank" rel="noopener">Escolher meu plano</a>
           <div>
-            <span class="an-card-label">Título</span>
-            <p class="an-card-title">Campeão Brasileiro</p>
-            <p>Melhor colocação: 1º lugar no Duatlo Brasileiro.</p>
+            <ul class="an-plan-list">
+              <li>Mais desconto no valor da mensalidade</li>
+              <li>Possibilidade de apresentar atestado e aplicar até 15 dias</li>
+              <li>Possibilidade de trancar o plano</li>
+              <li>Possibilidade de transferir o plano</li>
+              <li>Sem fidelidade</li>
+            </ul>
+            <p class="an-plan-note">Uma ótima opção para quem quer economizar e ter mais benefícios!</p>
           </div>
-          <div class="an-card-statbox">
-            <strong>1º</strong>
-            <span>Duatlo BR</span>
+        </div>
+        <div class="an-plan">
+          <div class="an-plan-title">
+            <img class="an-plan-logo" src="fotos/wellhub-logo.webp" alt="Wellhub">
+            <h3>Wellhub</h3>
           </div>
+          <p class="an-plan-desc">Chame sua dupla e treine com mais energia e motivação.</p>
+          <div class="an-plan-row-spacer" aria-hidden="true"></div>
+          <a class="an-btn an-nav-cta" href="https://wa.me/5592984475012" target="_blank" rel="noopener">Consultar condições</a>
+          <div class="an-plan-row-spacer" aria-hidden="true"></div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="an-section">
-    <div class="wrap an-story">
+  <section class="an-section" id="sobre">
+    <div class="an-story" data-reveal>
+      <span class="an-story-tag">/ Parceria</span>
       <h2>Sobre a <span>parceria</span></h2>
-      <p>A Atlética Nacional é uma das marcas que acreditam no João, ao lado de outros apoiadores da temporada. Uma academia de Manaus que também apoia outros atletas amazonenses em diferentes modalidades.</p>
-      <p>Como <strong>patrocinadora Gold</strong>, ela ocupa o maior papel de apoio entre os patrocinadores atuais, contribuindo diretamente para que o João siga competindo e evoluindo no triatlo.</p>
+      <p>A Atlética Nacional oferece uma estrutura diferenciada em Manaus, pensada para apoiar atletas em busca de alta performance e também todas as pessoas que desejam mudar seu estilo de vida.</p>
+      <p>Um espaço que acompanha cada aluno na própria jornada, seja no treino do dia a dia ou na preparação para competir.</p>
     </div>
   </section>
 
-  <section class="an-cta">
-    <h2>Agende sua aula experimental</h2>
-    <p>Conheça a Atlética Nacional e todos os canais oficiais da marca.</p>
-    <div class="an-cta-info">
-      <span>Seg a Sex: 05h às 22h</span>
-      <span>Sáb: 07h às 14h</span>
-      <span>Estacionamento grátis</span>
+  <section class="an-cta" id="horario">
+    <div data-reveal>
+      <span class="an-story-tag" style="color: rgba(8,22,39,0.45);">/ Horário</span>
+      <h2>Agende sua aula experimental</h2>
+      <p>Conheça a Atlética Nacional e todos os canais oficiais da marca.</p>
+      <div class="an-cta-info">
+        <span>Seg a Sex: 05h às 22h</span>
+        <span>Sáb: 07h às 14h</span>
+        <span>Estacionamento grátis</span>
+      </div>
+      <div class="an-hero-actions" style="justify-content:center; margin-bottom: 1.8rem;">
+        <a class="an-btn an-btn--outline" style="color: var(--navy-deep);" href="https://linktr.ee/atleticanacional" target="_blank" rel="noopener">Ver Linktree &#8594;</a>
+        <a class="an-btn an-btn--outline" style="color: var(--navy-deep);" href="https://www.instagram.com/atleticanacional/" target="_blank" rel="noopener">@atleticanacional</a>
+      </div>
+      <p class="an-cta-tag">Correu uma prova? Marque @atleticanacional nos stories.</p>
     </div>
-    <div class="an-hero-actions" style="justify-content:center; margin-bottom: 1.8rem;">
-      <a class="an-btn an-btn--fill" href="https://linktr.ee/atleticanacional" target="_blank" rel="noopener">Ver Linktree &#8594;</a>
-      <a class="an-btn an-btn--outline" style="color: var(--navy-deep);" href="https://www.instagram.com/atleticanacional/" target="_blank" rel="noopener">@atleticanacional</a>
-    </div>
-    <p class="an-cta-tag">Correu uma prova? Marque @atleticanacional nos stories.</p>
   </section>
 
   <footer class="an-footer">
-    <div class="wrap an-footer-top">
+    <div class="an-footer-top">
       <img src="fotos/apoiador-atletica-nacional.webp" alt="Atlética Nacional">
       <div class="an-footer-social">
         <a href="https://www.instagram.com/atleticanacional/" target="_blank" rel="noopener">Instagram</a>
         <a href="https://linktr.ee/atleticanacional" target="_blank" rel="noopener">Linktree</a>
       </div>
     </div>
-    <div class="wrap an-footer-cols">
+    <div class="an-footer-cols">
       <div>
         <h3>Horário</h3>
         <p>Seg a Sex: 05h às 22h</p>
@@ -316,14 +538,59 @@
         <p>Estacionamento grátis</p>
       </div>
       <div>
-        <h3>João Fuguete</h3>
-        <p><a href="index.html#apoiadores">Voltar para o site do João</a></p>
+        <h3>Atletas</h3>
+        <p>Camila Valdez</p>
+        <p><a href="index.html#apoiadores">João Fuguete</a></p>
+      </div>
+      <div>
+        <h3>Sobre</h3>
+        <p>Sobre a Atlética Nacional</p>
+        <p>Corporativo</p>
+        <p>Trabalhe Conosco</p>
+        <p><a href="https://wa.me/5592984475012" target="_blank" rel="noopener">Contato</a></p>
+        <p>FAQ</p>
+      </div>
+      <div>
+        <h3>Políticas e Documentos</h3>
+        <p>Política de Privacidade</p>
+        <p>Política de Cookies</p>
+        <p>Política de Segurança da Informação</p>
       </div>
     </div>
-    <div class="wrap an-footer-bottom">
-      Atlética Nacional · Patrocinadora Gold de João Fuguete
+    <div class="an-footer-bottom">
+      <div class="an-footer-legal">
+        <img src="fotos/apoiador-atletica-nacional-icon-white.webp" alt="">
+        <span>&copy; Atlética Nacional, Manaus - Amazonas &middot; CNPJ 17.191.373/0001-90</span>
+      </div>
     </div>
   </footer>
+
+  <a class="an-whatsapp" href="https://wa.me/5592984475012" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+    <svg viewBox="0 0 32 32" fill="#fff" xmlns="http://www.w3.org/2000/svg">
+      <path d="M16.004 3C9.377 3 4 8.373 4 15c0 2.34.65 4.53 1.78 6.4L4 29l7.77-1.75A11.94 11.94 0 0 0 16.004 27C22.63 27 28 21.627 28 15S22.63 3 16.004 3Zm0 21.9c-1.96 0-3.79-.53-5.36-1.45l-.38-.22-4.61 1.04 1.02-4.5-.25-.39A9.86 9.86 0 0 1 5.1 15c0-6.02 4.9-10.9 10.9-10.9 6.02 0 10.9 4.88 10.9 10.9s-4.88 10.9-10.9 10.9Zm5.98-8.17c-.33-.16-1.93-.95-2.23-1.06-.3-.11-.51-.16-.73.16-.22.33-.84 1.06-1.03 1.27-.19.22-.38.24-.7.08-.33-.16-1.38-.51-2.63-1.63-.97-.87-1.63-1.94-1.82-2.27-.19-.33-.02-.5.14-.67.15-.15.33-.38.5-.57.16-.19.22-.33.33-.55.11-.22.05-.41-.03-.57-.08-.16-.73-1.75-1-2.4-.26-.63-.53-.54-.73-.55h-.62c-.22 0-.57.08-.87.4-.3.33-1.14 1.11-1.14 2.71s1.17 3.14 1.33 3.36c.16.22 2.3 3.5 5.56 4.91.78.34 1.38.54 1.86.69.78.25 1.49.21 2.05.13.63-.09 1.93-.79 2.2-1.55.27-.76.27-1.41.19-1.55-.08-.14-.3-.22-.63-.38Z"/>
+    </svg>
+  </a>
+
+  <script>
+    document.querySelectorAll('.an-features [data-reveal]').forEach((el, i) => {
+      el.style.transitionDelay = (i * 90) + 'ms';
+    });
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        revealObserver.unobserve(entry.target);
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+    document.querySelectorAll('[data-reveal]').forEach(el => revealObserver.observe(el));
+
+    const siteNav = document.querySelector('.an-nav');
+    function onNavScroll() {
+      siteNav?.classList.toggle('is-scrolled', window.scrollY > 40);
+    }
+    window.addEventListener('scroll', onNavScroll, { passive: true });
+    onNavScroll();
+  </script>
 
 </body>
 </html>
