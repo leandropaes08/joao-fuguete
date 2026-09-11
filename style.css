@@ -659,10 +659,26 @@ h1, h2, h3 {
   font-weight: 800; color: #f4c15c;
 }
 .supporter-card--gold {
+  position: relative;
   opacity: 1; filter: none;
+  padding-bottom: 1.6rem;
 }
 .supporter-card--gold:hover { transform: translateY(-3px); }
 .supporter-card--gold img { width: 280px; height: 108px; object-fit: contain; }
+.supporter-card--gold-hint {
+  position: absolute; left: 50%; bottom: 0;
+  transform: translate(-50%, 4px);
+  font-size: 0.75rem; font-weight: 700; letter-spacing: 0.04em;
+  color: #f4c15c;
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+  white-space: nowrap;
+}
+.supporter-card--gold:hover .supporter-card--gold-hint,
+.supporter-card--gold:focus-visible .supporter-card--gold-hint {
+  opacity: 1; transform: translate(-50%, 0);
+}
 .supporters-subhead {
   font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
   color: var(--text-dim); margin-bottom: 1.1rem;
